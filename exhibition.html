@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>GINGER / MOVING IMAGE｜影像展览</title>
+    <meta name="description" content="Ginger Li 的个人影像展览：旅行、成长、演唱会与那些值得反复观看的瞬间。">
+    <meta name="theme-color" content="#11120F">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GINGER / MOVING IMAGE｜影像展览">
+    <meta property="og:description" content="七件影像作品，一次关于旅行、成长和热爱的私人放映。">
+    <meta property="og:url" content="https://liability0809.github.io/GoGoJuice/exhibition.html">
+    <meta property="og:image" content="https://liability0809.github.io/GoGoJuice/assets/exhibition/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GINGER / MOVING IMAGE｜影像展览">
+    <meta name="twitter:description" content="七件影像作品，一次关于旅行、成长和热爱的私人放映。">
+    <meta name="twitter:image" content="https://liability0809.github.io/GoGoJuice/assets/exhibition/og.png">
+    <script>
+        if (new URLSearchParams(window.location.search).get('embedded') === '1') {
+            document.documentElement.classList.add('is-embedded');
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        :root {
+            --ink: #11120F;
+            --paper: #F5F1E7;
+            --blue: #304FFE;
+            --lime: #C7F000;
+            --coral: #FF725E;
+            --muted: #A4A69F;
+            --line: rgba(245, 241, 231, .24);
+        }
+        html { background: var(--ink); scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            min-width: 320px;
+            min-height: 100svh;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 88% 8%, rgba(48, 79, 254, .18), transparent 25rem),
+                radial-gradient(circle at 8% 92%, rgba(255, 114, 94, .10), transparent 28rem),
+                var(--ink);
+            color: var(--paper);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
+            letter-spacing: -.01em;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            opacity: .11;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(245, 241, 231, .42) .55px, transparent .55px);
+            background-size: 5px 5px;
+            mix-blend-mode: screen;
+        }
+        ::selection { color: var(--ink); background: var(--lime); }
+        a, button { font: inherit; }
+        a:focus-visible, button:focus-visible, video:focus-visible {
+            outline: 3px solid var(--lime);
+            outline-offset: 4px;
+        }
+
+        .topbar {
+            width: min(1520px, 100%);
+            height: 76px;
+            margin: 0 auto;
+            padding: 0 clamp(18px, 3vw, 48px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+        .brand, .back-link {
+            color: var(--paper);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+        .brand { display: inline-flex; align-items: center; gap: 10px; }
+        .brand-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--lime);
+            border: 1.5px solid var(--paper);
+            border-radius: 50%;
+        }
+        .back-link {
+            padding: 9px 13px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            transition: .2s ease;
+        }
+        .back-link:hover { color: var(--ink); background: var(--lime); border-color: var(--lime); }
+
+        main {
+            width: min(1520px, 100%);
+            margin: 0 auto;
+            padding: clamp(26px, 4vw, 58px) clamp(18px, 3vw, 48px) 38px;
+        }
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: end;
+            gap: 28px;
+            margin-bottom: clamp(24px, 3vw, 42px);
+        }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 13px;
+            color: var(--lime);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .18em;
+        }
+        .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+        h1 {
+            margin: 0;
+            max-width: 1000px;
+            font-size: clamp(44px, 7vw, 106px);
+            line-height: .86;
+            letter-spacing: -.075em;
+            font-weight: 950;
+            text-transform: uppercase;
+        }
+        h1 span { color: var(--blue); }
+        .intro-note {
+            max-width: 260px;
+            margin: 0 0 5px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        .carousel { position: relative; }
+        .viewport {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #090A08;
+        }
+        .track {
+            display: flex;
+            will-change: transform;
+            transition: transform .72s cubic-bezier(.22, .72, .18, 1);
+        }
+        .slide {
+            width: 100%;
+            min-width: 100%;
+            padding: clamp(14px, 2.1vw, 30px);
+        }
+        .media-frame {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            min-height: 320px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(245, 241, 231, .2);
+        }
+        .media-frame::before, .media-frame::after {
+            content: "";
+            position: absolute;
+            z-index: 4;
+            width: 34px;
+            height: 34px;
+            pointer-events: none;
+        }
+        .media-frame::before { left: 14px; top: 14px; border-left: 2px solid var(--lime); border-top: 2px solid var(--lime); }
+        .media-frame::after { right: 14px; bottom: 14px; border-right: 2px solid var(--lime); border-bottom: 2px solid var(--lime); }
+        video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+
+        .xhs-display {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            color: var(--paper);
+            text-decoration: none;
+            background:
+                linear-gradient(108deg, rgba(17, 18, 15, .96) 0 49%, rgba(17, 18, 15, .18) 72%),
+                radial-gradient(circle at 77% 44%, rgba(199, 240, 0, .75), transparent 6%),
+                linear-gradient(145deg, #304FFE 0 45%, #FF725E 46% 71%, #C7F000 72% 100%);
+        }
+        .xhs-copy { align-self: end; padding: clamp(28px, 5vw, 80px); }
+        .xhs-kicker { display: block; margin-bottom: 20px; color: var(--lime); font-size: 11px; font-weight: 900; letter-spacing: .18em; }
+        .xhs-title { display: block; max-width: 780px; font-size: clamp(34px, 5vw, 80px); line-height: .96; font-weight: 950; letter-spacing: -.06em; }
+        .xhs-action { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; font-size: 12px; font-weight: 850; }
+        .play-disc {
+            position: absolute;
+            right: 19%;
+            top: 50%;
+            width: clamp(100px, 13vw, 210px);
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            transform: translate(50%, -50%);
+            border-radius: 50%;
+            color: var(--ink);
+            background: var(--lime);
+            border: 3px solid var(--ink);
+            box-shadow: 10px 10px 0 var(--blue);
+            font-size: clamp(32px, 5vw, 72px);
+            transition: .25s ease;
+        }
+        .xhs-display:hover .play-disc { transform: translate(50%, -50%) rotate(8deg) scale(1.05); }
+
+        .art-info {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(180px, .54fr);
+            gap: clamp(24px, 4vw, 68px);
+            padding: clamp(23px, 3vw, 42px) 2px 7px;
+        }
+        .work-label { margin: 0 0 9px; color: var(--coral); font-size: 10px; font-weight: 900; letter-spacing: .16em; }
+        .work-title {
+            max-width: 980px;
+            margin: 0;
+            font-size: clamp(28px, 4.2vw, 64px);
+            line-height: 1.02;
+            letter-spacing: -.055em;
+            font-weight: 950;
+        }
+        .work-copy {
+            max-width: 940px;
+            max-height: 7.4em;
+            margin: 17px 0 0;
+            padding-right: 18px;
+            overflow: auto;
+            color: #B8BAB3;
+            font-size: clamp(12px, 1vw, 14px);
+            line-height: 1.75;
+            white-space: pre-line;
+            scrollbar-color: var(--blue) transparent;
+            scrollbar-width: thin;
+        }
+        .meta { border-left: 1px solid var(--line); padding-left: clamp(20px, 2.2vw, 34px); }
+        .meta-label { margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .17em; }
+        .date { display: block; margin-bottom: 20px; color: var(--lime); font-size: clamp(24px, 2.5vw, 40px); font-weight: 950; letter-spacing: -.04em; }
+        .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+        .stat { padding: 10px 11px; border: 1px solid var(--line); }
+        .stat b { display: block; font-size: clamp(15px, 1.25vw, 20px); letter-spacing: -.02em; }
+        .stat span { color: var(--muted); font-size: 9px; }
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 14px;
+            color: var(--paper);
+            font-size: 10px;
+            font-weight: 850;
+            letter-spacing: .08em;
+            text-underline-offset: 4px;
+        }
+
+        .carousel-controls {
+            min-height: 72px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 22px;
+            border-top: 1px solid var(--line);
+        }
+        .arrow {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            color: var(--paper);
+            background: transparent;
+            cursor: pointer;
+            font-size: 25px;
+            transition: .2s ease;
+        }
+        .arrow:hover:not(:disabled) { color: var(--ink); background: var(--lime); border-color: var(--lime); transform: rotate(-4deg); }
+        .arrow:disabled { opacity: .25; cursor: not-allowed; }
+        .arrow.next { justify-self: start; }
+        .arrow.prev { justify-self: end; }
+        .progress { display: flex; align-items: center; gap: 15px; }
+        .counter { min-width: 60px; font-size: 12px; font-weight: 900; letter-spacing: .12em; }
+        .counter b { color: var(--lime); font-size: 21px; }
+        .dots { display: flex; gap: 7px; }
+        .dot {
+            width: 26px;
+            height: 5px;
+            padding: 0;
+            border: 0;
+            background: rgba(245, 241, 231, .22);
+            cursor: pointer;
+            transition: .25s ease;
+        }
+        .dot.active { width: 52px; background: var(--blue); }
+        .footnote { margin: 14px 0 0; color: #70736B; font-size: 9px; line-height: 1.55; text-align: center; letter-spacing: .06em; }
+
+        @media (max-width: 850px) {
+            .intro { grid-template-columns: 1fr; }
+            .intro-note { max-width: 520px; }
+            .art-info { grid-template-columns: 1fr; }
+            .meta { border-left: 0; border-top: 1px solid var(--line); padding: 20px 0 0; }
+            .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .media-frame { min-height: 0; }
+            .work-copy { max-height: none; overflow: visible; }
+        }
+        @media (max-width: 620px) {
+            .topbar { height: 64px; }
+            .brand { font-size: 10px; }
+            .back-link { font-size: 9px; }
+            main { padding-top: 28px; }
+            h1 { font-size: clamp(43px, 17vw, 70px); }
+            .slide { padding: 9px; }
+            .media-frame { aspect-ratio: 4 / 3; }
+            video { object-fit: contain; }
+            .xhs-display { grid-template-columns: 1fr; }
+            .xhs-copy { align-self: end; padding: 27px 23px; }
+            .xhs-title { max-width: 78%; font-size: clamp(31px, 9vw, 48px); }
+            .play-disc { right: 24%; top: 35%; }
+            .art-info { padding: 24px 13px 14px; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .carousel-controls { gap: 12px; }
+            .arrow { width: 44px; height: 44px; }
+            .dots { gap: 5px; }
+            .dot { width: 15px; }
+            .dot.active { width: 29px; }
+            .counter { min-width: 48px; font-size: 10px; }
+            .counter b { font-size: 17px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .track, .play-disc, .arrow { transition: none; }
+        }
+
+        /* ===== IMMERSIVE EXHIBITION ===== */
+        html { background: var(--ink); }
+        body {
+            background:
+                radial-gradient(circle at 92% 4%, rgba(48, 79, 254, .15), transparent 27rem),
+                radial-gradient(circle at 7% 90%, rgba(199, 240, 0, .045), transparent 32rem),
+                var(--ink);
+            color: var(--paper);
+        }
+        .topbar {
+            width: 100%;
+            height: 66px;
+            padding-inline: clamp(22px, 4vw, 72px);
+            border-bottom: 1px solid rgba(245, 241, 231, .16);
+        }
+        .brand, .back-link { color: var(--paper); }
+        .brand-dot { border-color: var(--paper); }
+        .back-link { border-color: rgba(245, 241, 231, .25); }
+        .back-link:hover { color: var(--ink); background: var(--lime); border-color: var(--lime); }
+        main {
+            width: 100%;
+            max-width: none;
+            padding: 0;
+        }
+        .exhibition-shell {
+            overflow: hidden;
+            width: 100%;
+            min-height: calc(100svh - 66px);
+            color: var(--paper);
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .intro {
+            width: 100%;
+            min-height: 0;
+            margin: 0;
+            padding: clamp(32px, 4.3vw, 70px) clamp(24px, 5vw, 86px) clamp(30px, 4vw, 58px);
+            grid-template-columns: minmax(0, 1fr) minmax(220px, 330px);
+            align-items: end;
+            color: var(--paper);
+            background: transparent;
+        }
+        .eyebrow { margin-bottom: 10px; }
+        h1 {
+            max-width: none;
+            font-size: clamp(48px, 6vw, 78px);
+            line-height: .9;
+            letter-spacing: -.065em;
+        }
+        h1 span { color: var(--blue); }
+        .intro-note { max-width: 330px; color: #92958E; }
+        .carousel { background: transparent; }
+        .viewport {
+            overflow: hidden;
+            border: 0;
+            border-top: 1px solid rgba(245, 241, 231, .16);
+            background: transparent;
+        }
+        .track { align-items: flex-start; }
+        .slide {
+            display: grid;
+            grid-template-columns: minmax(0, 2.05fr) minmax(270px, .82fr);
+            grid-template-areas:
+                "media meta"
+                "copy meta";
+            gap: 22px 30px;
+            padding: clamp(28px, 3.6vw, 56px) clamp(24px, 5vw, 86px) 30px;
+        }
+        .media-frame {
+            grid-area: media;
+            min-height: 0;
+            aspect-ratio: 16 / 9;
+            border: 1px solid rgba(245, 241, 231, .22);
+            border-radius: 24px;
+            background: #090A08;
+        }
+        .media-frame::before, .media-frame::after { display: none; }
+        video { background: #090A08; }
+        .xhs-copy { padding: clamp(24px, 3.4vw, 46px); }
+        .xhs-kicker { margin-bottom: 12px; font-size: 9px; }
+        .xhs-title { font-size: clamp(28px, 3.5vw, 52px); }
+        .xhs-action { margin-top: 18px; }
+        .play-disc { width: clamp(78px, 9vw, 126px); box-shadow: 6px 6px 0 var(--blue); }
+        .art-info { display: contents; }
+        .art-info > div {
+            grid-area: copy;
+            padding: 0 4px 4px;
+            color: var(--paper);
+            background: transparent;
+        }
+        .work-label { margin-bottom: 7px; font-size: 9px; }
+        .work-title {
+            max-width: 100%;
+            font-size: clamp(26px, 3vw, 44px);
+            line-height: 1.02;
+        }
+        .work-copy {
+            max-height: 5.4em;
+            margin-top: 11px;
+            color: #AEB0AA;
+            font-size: clamp(11px, .9vw, 13px);
+            line-height: 1.65;
+        }
+        .meta {
+            grid-area: meta;
+            align-self: stretch;
+            margin: 0;
+            padding: 4px 0 0 30px;
+            border: 0;
+            border-left: 1px solid rgba(245, 241, 231, .18);
+            color: var(--paper);
+            background: transparent;
+        }
+        .meta-label { margin-bottom: 12px; font-size: 10px; }
+        .date {
+            margin-bottom: clamp(24px, 3vw, 42px);
+            font-size: clamp(34px, 3.4vw, 50px);
+            line-height: .96;
+        }
+        .stats { gap: 9px; }
+        .stat {
+            min-height: 92px;
+            padding: 16px 14px;
+            border-color: rgba(245, 241, 231, .18);
+            background: rgba(255, 255, 255, .025);
+        }
+        .stat b { font-size: clamp(18px, 1.55vw, 24px); }
+        .stat span { display: block; margin-top: 9px; font-size: 9px; }
+        .source-link { margin-top: 22px; font-size: 10px; }
+        .comments-panel {
+            margin-top: 24px;
+            padding-top: 17px;
+            border-top: 1px solid rgba(245, 241, 231, .18);
+        }
+        .comments-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 11px;
+        }
+        .comments-heading h3 {
+            margin: 0;
+            font-size: 10px;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .comments-heading span {
+            color: var(--lime);
+            font-size: 10px;
+            font-weight: 900;
+        }
+        .comments-list {
+            max-height: 238px;
+            padding-right: 8px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: var(--blue) rgba(245, 241, 231, .08);
+        }
+        .comments-list::-webkit-scrollbar { width: 5px; }
+        .comments-list::-webkit-scrollbar-track { background: rgba(245, 241, 231, .08); }
+        .comments-list::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 99px; }
+        .comment-item {
+            display: grid;
+            grid-template-columns: 30px minmax(0, 1fr);
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(245, 241, 231, .12);
+        }
+        .comment-item:last-child { border-bottom: 0; }
+        .comment-avatar {
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(245, 241, 231, .22);
+            border-radius: 50%;
+            color: var(--ink);
+            background: var(--lime);
+            font-size: 9px;
+            font-weight: 950;
+        }
+        .comment-author {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 850;
+            letter-spacing: .04em;
+        }
+        .comment-text {
+            margin: 0;
+            color: #D2D3CE;
+            font-size: 11px;
+            line-height: 1.55;
+        }
+        .comment-time {
+            display: block;
+            margin-top: 6px;
+            color: #6F726A;
+            font-size: 8px;
+        }
+        .comment-open {
+            color: var(--paper);
+            font-weight: 850;
+            text-underline-offset: 3px;
+        }
+        .carousel-controls {
+            min-height: 68px;
+            margin: 0;
+            border-top-color: rgba(245, 241, 231, .16);
+        }
+        .arrow { color: var(--paper); border-color: rgba(245, 241, 231, .28); }
+        .arrow:hover:not(:disabled) { color: var(--ink); background: var(--lime); border-color: var(--lime); }
+        .counter { color: var(--paper); }
+        .counter b { color: var(--lime); }
+        .dot { background: rgba(245, 241, 231, .22); }
+        .dot.active { background: var(--blue); }
+        .footnote { margin: 0; padding: 0 24px 16px; color: #74776F; }
+
+        @media (max-width: 900px) {
+            .intro { grid-template-columns: 1fr; }
+            .intro-note { max-width: 520px; }
+            .slide {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "media"
+                    "copy"
+                    "meta";
+                gap: 18px;
+            }
+            .meta {
+                padding: 20px 0 0;
+                border-left: 0;
+                border-top: 1px solid rgba(245, 241, 231, .18);
+            }
+            .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .comments-list { max-height: 280px; }
+        }
+        @media (max-width: 620px) {
+            .topbar { height: 60px; }
+            .intro { padding: 22px 18px; }
+            h1 { font-size: clamp(42px, 14vw, 60px); }
+            .slide { padding: 18px; }
+            .media-frame { aspect-ratio: 16 / 9; border-radius: 15px; }
+            .work-title { font-size: clamp(25px, 8vw, 36px); }
+            .work-copy { max-height: 8.1em; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .stat { min-height: 84px; }
+            .carousel-controls { gap: 10px; }
+            .comments-list { max-height: 250px; }
+        }
+
+        /* ===== ONE-SCREEN / TRACKPAD SNAP ===== */
+        .comments-panel { display: none; }
+        .viewport { touch-action: pan-y; }
+
+        @media (min-width: 901px) {
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+            .topbar {
+                height: 54px;
+                flex: 0 0 54px;
+                padding-inline: clamp(22px, 4vw, 70px);
+            }
+            main {
+                height: calc(100svh - 54px);
+                min-height: 0;
+                flex: 1 1 auto;
+            }
+            .exhibition-shell {
+                height: 100%;
+                min-height: 0;
+                display: grid;
+                grid-template-rows: auto minmax(0, 1fr);
+            }
+            .intro {
+                min-height: 0;
+                padding: clamp(14px, 2vh, 24px) clamp(26px, 5vw, 86px) clamp(12px, 1.8vh, 20px);
+                grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+            }
+            .eyebrow {
+                margin-bottom: 6px;
+                font-size: 8px;
+            }
+            h1 {
+                font-size: clamp(40px, 4.7vw, 72px);
+                line-height: .86;
+            }
+            .intro-note {
+                max-width: 360px;
+                margin-bottom: 0;
+                font-size: 11px;
+                line-height: 1.5;
+            }
+            .carousel {
+                min-height: 0;
+                display: grid;
+                grid-template-rows: minmax(0, 1fr) 54px 20px;
+            }
+            .viewport,
+            .track {
+                height: 100%;
+                min-height: 0;
+            }
+            .track {
+                align-items: stretch;
+                transition: transform .58s cubic-bezier(.22, .78, .18, 1);
+            }
+            .slide {
+                height: 100%;
+                min-height: 0;
+                grid-template-columns: minmax(0, 2.15fr) minmax(300px, .82fr);
+                grid-template-rows: auto minmax(0, 1fr);
+                grid-template-areas:
+                    "media meta"
+                    "media copy";
+                gap: 14px clamp(22px, 2.1vw, 34px);
+                padding: clamp(14px, 2vh, 22px) clamp(26px, 5vw, 86px) 12px;
+            }
+            .media-frame {
+                height: 100%;
+                min-height: 0;
+                aspect-ratio: auto;
+                border-radius: 20px;
+            }
+            .media-frame video {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .meta {
+                align-self: start;
+                min-height: 0;
+                padding: 2px 0 0 clamp(20px, 2vw, 30px);
+            }
+            .meta-label {
+                margin-bottom: 7px;
+                font-size: 8px;
+            }
+            .date {
+                margin-bottom: clamp(13px, 1.8vh, 22px);
+                font-size: clamp(28px, 3vw, 46px);
+            }
+            .stats { gap: 7px; }
+            .stat {
+                min-height: clamp(58px, 8.2vh, 78px);
+                padding: clamp(9px, 1.3vh, 13px) 12px;
+            }
+            .stat b { font-size: clamp(17px, 1.35vw, 22px); }
+            .stat span { margin-top: 5px; font-size: 8px; }
+            .source-link { margin-top: 13px; font-size: 9px; }
+            .art-info > div {
+                min-height: 0;
+                display: flex;
+                flex-direction: column;
+                padding: 13px 0 2px clamp(20px, 2vw, 30px);
+                overflow: hidden;
+                border-left: 1px solid rgba(245, 241, 231, .18);
+                border-top: 1px solid rgba(245, 241, 231, .18);
+            }
+            .work-label {
+                flex: 0 0 auto;
+                margin-bottom: 6px;
+                font-size: 8px;
+            }
+            .work-title {
+                flex: 0 0 auto;
+                font-size: clamp(22px, 2.05vw, 35px);
+                line-height: 1.02;
+            }
+            .work-copy {
+                min-height: 0;
+                max-height: none;
+                flex: 1 1 auto;
+                margin-top: 9px;
+                padding-right: 10px;
+                overflow-y: auto;
+                font-size: clamp(10px, .78vw, 12px);
+                line-height: 1.58;
+            }
+            .carousel-controls {
+                min-height: 54px;
+                height: 54px;
+            }
+            .arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .counter b { font-size: 17px; }
+            .footnote {
+                height: 20px;
+                margin: 0;
+                padding: 0 24px 4px;
+                overflow: hidden;
+                font-size: 8px;
+                line-height: 16px;
+            }
+        }
+
+        @media (min-width: 901px) and (max-height: 820px) {
+            .topbar { height: 48px; flex-basis: 48px; }
+            main { height: calc(100svh - 48px); }
+            .intro { padding-top: 9px; padding-bottom: 8px; }
+            .eyebrow { display: none; }
+            h1 { font-size: clamp(36px, 4.2vw, 60px); }
+            .intro-note { font-size: 10px; }
+            .carousel { grid-template-rows: minmax(0, 1fr) 46px; }
+            .slide { padding-top: 10px; padding-bottom: 8px; }
+            .date { margin-bottom: 10px; font-size: clamp(25px, 2.6vw, 38px); }
+            .stat { min-height: 52px; padding-block: 7px; }
+            .source-link { margin-top: 9px; }
+            .art-info > div { padding-top: 9px; }
+            .work-title { font-size: clamp(20px, 1.8vw, 30px); }
+            .work-copy { margin-top: 6px; line-height: 1.48; }
+            .carousel-controls { min-height: 46px; height: 46px; }
+            .arrow { width: 36px; height: 36px; }
+            .footnote { display: none; }
+        }
+
+        /* Embedded on the homepage: the parent site supplies the navigation. */
+        html.is-embedded .topbar { display: none; }
+        html.is-embedded main {
+            height: 100svh;
+            min-height: 100svh;
+        }
+        html.is-embedded .exhibition-shell { min-height: 100svh; }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-dot"></span>GINGER / MOVING IMAGE</a>
+        <a class="back-link" href="index.html">← 返回个人主页</a>
+    </header>
+
+    <main>
+        <div class="exhibition-shell">
+        <section class="intro" aria-labelledby="pageTitle">
+            <div>
+                <div class="eyebrow">SELECTED WORKS · 2023—2026</div>
+                <h1 id="pageTitle">Moving <span>Image.</span></h1>
+            </div>
+            <p class="intro-note">做好的视频放这里，以后老了看。</p>
+        </section>
+
+        <section class="carousel" aria-roledescription="carousel" aria-label="Ginger 的影像作品展览">
+            <div class="viewport" id="viewport">
+                <div class="track" id="track">
+                    <article class="slide" aria-roledescription="slide" aria-label="第 1 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/study-abroad-dream.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e8d2adf60edf114f0370019976fa0cf5_258.mp4" aria-label="播放：你一定会实现出国留学的梦想的">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 01 · 小红书 · 03:02</p>
+                                <h2 class="work-title">你一定会实现出国留学的梦想的！</h2>
+                                <p class="work-copy">我可太爱做这些内容了。
+
+之前我一直很介意别人说我“励志”，也从来没做过“励志向”的内容。直到我在美国的时候，怀着非常开心的心情，在露天停车场等朋友时，在车里写下这篇文章。我发现这些“励志”的内容有时候真的充满能量。每个人的起点不一样，但每个人的人生路都有自己的风景；埋头走路又抬头看路的时候，风景很美好。
+
+有些人生来就在罗马，但是你知道的，罗马和你的距离，就只差一张 3000 块的机票而已。我在 9.30 前一定要把自己的生日 vlog 剪出来：22 岁去了 5 个国家，创业第一次赚了 6 位数，我的 gap year 太值得了。
+
+#美国 #美国生活 #美国旅行 #洛杉矶 #留学 #留学生 #梦想</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2025-09-23">2025.09.23</time>
+                                <div class="stats">
+                                    <div class="stat"><b>5,247</b><span>点赞</span></div>
+                                    <div class="stat"><b>143</b><span>评论</span></div>
+                                    <div class="stat"><b>1,155</b><span>收藏</span></div>
+                                    <div class="stat"><b>217</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/68d2adf70000000014009a3c?xsec_token=AB1napOYpSDTqQFma1yKHNrQI5KLxzpNcGMa-8qK8HL5g=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <section class="comments-panel" aria-label="小红书评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>143</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">评论正文由小红书的登录态与签名接口动态加载，静态网站无法可靠地直接复制全部评论。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这条作品当前公开显示 143 条评论，互动数据读取于 2026.08.04。</p><span class="comment-time">数据会继续变化</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://www.xiaohongshu.com/explore/68d2adf70000000014009a3c?xsec_token=AB1napOYpSDTqQFma1yKHNrQI5KLxzpNcGMa-8qK8HL5g=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">打开小红书查看全部 143 条真实评论 ↗</a></p><span class="comment-time">不会在站内伪造用户评论</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">这个区域已经独立滚动，不会把整张作品卡继续向下撑高。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 2 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-cheap.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v1e00fgi0000d8dac67og65km80gthe0&amp;ratio=720p&amp;line=0" aria-label="播放：来新西兰旅行前没想到会这么便宜">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 02 · 抖音 · 09:23</p>
+                                <h2 class="work-title">来新西兰旅行前，没想到会这么便宜</h2>
+                                <p class="work-copy">来新西兰旅行前没想到会这么便宜
+#新西兰 #新西兰旅游 #新西兰旅行 #皇后镇 #澳大利亚</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2026-05-30">2026.05.30</time>
+                                <div class="stats">
+                                    <div class="stat"><b>20,863</b><span>点赞</span></div>
+                                    <div class="stat"><b>1,343</b><span>评论</span></div>
+                                    <div class="stat"><b>14,172</b><span>收藏</span></div>
+                                    <div class="stat"><b>17,606</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://v.douyin.com/e_ockvdUL5M/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <section class="comments-panel" aria-label="抖音评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>1,343</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">抖音评论正文由平台登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 1,343 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://v.douyin.com/e_ockvdUL5M/" target="_blank" rel="noopener noreferrer">在抖音查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 3 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-once.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v2800fgi0000d82tjgfog65urev9gq4g&amp;ratio=720p&amp;line=0" aria-label="播放：人一辈子一定要来一次新西兰">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 03 · 抖音 · 03:01</p>
+                                <h2 class="work-title">人一辈子一定要来一次新西兰</h2>
+                                <p class="work-copy">人一辈子一定要来一次新西兰
+#新西兰 #新西兰旅游</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2026-05-14">2026.05.14</time>
+                                <div class="stats">
+                                    <div class="stat"><b>33,120</b><span>点赞</span></div>
+                                    <div class="stat"><b>1,820</b><span>评论</span></div>
+                                    <div class="stat"><b>8,222</b><span>收藏</span></div>
+                                    <div class="stat"><b>20,413</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://v.douyin.com/Fg_meBVZtUk/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <section class="comments-panel" aria-label="抖音评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>1,820</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">抖音评论正文由平台登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 1,820 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://v.douyin.com/Fg_meBVZtUk/" target="_blank" rel="noopener noreferrer">在抖音查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 4 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/taylor-swift.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v0300fg10000crqivknog65pquv9bdeg&amp;ratio=720p&amp;line=0" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 04 · 抖音 · 04:38</p>
+                                <h2 class="work-title">一支剪了 20 小时的霉霉演唱会视频</h2>
+                                <p class="work-copy">#泰勒斯威夫特 #taylorswift #taylor霉霉 #霉霉 #霉霉演唱会
+
+这场演唱会的感受和攻略应该全在这个视频里面了，想分享一下剪这个视频本身的感受。这个视频我剪了快有 20 个小时，从 8 月 8 日实习离职那天在深圳的出租屋拍完素材，到 9 月开始剪，从粗剪到精剪。朋友说开头太平淡，我就去研究节奏、声音、音效和关键帧，又把霉霉电影宣传片一帧一帧拉片来看。
+
+作为博主，我特别害怕自己做出来的东西没人看、全是自嗨。但做三宋和霉霉这两个视频的时候，我真的非常开心——因为我知道这就是我喜欢做的事情，而结果是把控不了的。所以还是和自己说：先做，不行再找原因，改进，下次再优化。第一次听霉霉，是初三听《22》入坑的；而我现在也 22 了 🤣</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2024-09-26">2024.09.26</time>
+                                <div class="stats">
+                                    <div class="stat"><b>15,145</b><span>点赞</span></div>
+                                    <div class="stat"><b>911</b><span>评论</span></div>
+                                    <div class="stat"><b>8,393</b><span>收藏</span></div>
+                                    <div class="stat"><b>3,056</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://v.douyin.com/q3uUQ6sk7eg/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <section class="comments-panel" aria-label="抖音评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>911</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">抖音评论正文由平台登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 911 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://v.douyin.com/q3uUQ6sk7eg/" target="_blank" rel="noopener noreferrer">在抖音查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 5 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/japan-15-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e7776c452ae1ae01037001942a82e0e9_258.mp4" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 05 · 小红书 · 03:30</p>
+                                <h2 class="work-title">保姆级攻略｜大学生勇闯日本 15 天 8000 块</h2>
+                                <p class="work-copy">北海道 7 天 8000 攻略已经在赶了。此外还有一个很新的信息差：去日本地铁站台和工作人员说想买青春 18 卡，可以凭这张卡免费乘坐铁路游玩很多城市。等我做攻略视频的时候再好好搜搜 😋
+
+#日本 #日本旅行 #特种兵 #东京 #大阪 #北海道 #东京旅行 #大阪旅行 #京都旅行</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2025-01-03">2025.01.03</time>
+                                <div class="stats">
+                                    <div class="stat"><b>3,338</b><span>点赞</span></div>
+                                    <div class="stat"><b>94</b><span>评论</span></div>
+                                    <div class="stat"><b>2,658</b><span>收藏</span></div>
+                                    <div class="stat"><b>808</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67776c46000000000b017a63?xsec_token=CBA532_WlSP_-xkG7wUdwuNn4fbfolVBZb0NtqZrZKOkI=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <section class="comments-panel" aria-label="小红书评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>94</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">评论正文由小红书登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 94 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://www.xiaohongshu.com/explore/67776c46000000000b017a63?xsec_token=CBA532_WlSP_-xkG7wUdwuNn4fbfolVBZb0NtqZrZKOkI=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 6 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e7b2e9674a10404f03700195133aaf3f_258.mp4" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 06 · 小红书 · 04:11</p>
+                                <h2 class="work-title">大学生勇闯北海道 8 天 8000 块攻略‼️</h2>
+                                <p class="work-copy">真的被北海道惩罚了好多次……我和朋友一个在京东，一个在港大，12 月那段时间实在太忙，根本没时间准备日本北海道的攻略和行程。出发前连日元都没换好，落地以后还在到处找取钱的地方。
+
+在洞爷湖住进了一个“鬼屋”；因为没有提前订好全程酒店，价格没做到最优惠，还差点没地方住。所以真心建议大家去日本游玩时提前规划行程和订好酒店，玩起来更安心。大家去日本有什么疑问尽管来问我！
+
+#日本 #日本旅行 #北海道 #北海道旅行 #旅行攻略 #日本旅游 #东京 #小樽</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2025-02-17">2025.02.17</time>
+                                <div class="stats">
+                                    <div class="stat"><b>3,447</b><span>点赞</span></div>
+                                    <div class="stat"><b>80</b><span>评论</span></div>
+                                    <div class="stat"><b>3,342</b><span>收藏</span></div>
+                                    <div class="stat"><b>1,578</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321?xsec_token=CBHSzbjUC_ABccpcxL5-qaMRcYNdxbhpz6_NODjStJw_k=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <section class="comments-panel" aria-label="小红书评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>80</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">评论正文由小红书登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 80 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321?xsec_token=CBHSzbjUC_ABccpcxL5-qaMRcYNdxbhpz6_NODjStJw_k=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <article class="slide" aria-roledescription="slide" aria-label="第 7 件作品，共 7 件">
+                        <div class="media-frame">
+                            <video controls playsinline preload="none" poster="assets/exhibition/internship-offers.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e53cec71ab7ecb01037001943ad08c97_258.mp4" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
+                                你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
+                            </video>
+                        </div>
+                        <div class="art-info">
+                            <div>
+                                <p class="work-label">WORK 07 · 小红书 · 02:22</p>
+                                <h2 class="work-title">19 岁大二 0 经验找实习，如何拿下 5 家大厂 Offer</h2>
+                                <p class="work-copy">分享一下关于找第一份实习的经验：如何做简历 → 如何准备面试 → 如何投递。后续会继续分享如何找实习和大厂实习体验。
+
+#大厂实习 #互联网大厂实习 #暑假实习 #实习 #找实习</p>
+                            </div>
+                            <aside class="meta" aria-label="作品信息">
+                                <div class="meta-label">PUBLISHED</div>
+                                <time class="date" datetime="2023-10-28">2023.10.28</time>
+                                <div class="stats">
+                                    <div class="stat"><b>8,167</b><span>点赞</span></div>
+                                    <div class="stat"><b>70</b><span>评论</span></div>
+                                    <div class="stat"><b>7,473</b><span>收藏</span></div>
+                                    <div class="stat"><b>240</b><span>分享</span></div>
+                                </div>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/653cec72000000002202f282?xsec_token=CBGsZVwBu7y8AWhe8hEA2yXTGRrpLva7pTg43_00B1hEg=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <section class="comments-panel" aria-label="小红书评论区">
+                                    <div class="comments-heading"><h3>Comments / 评论区</h3><span>70</span></div>
+                                    <div class="comments-list" tabindex="0">
+                                        <article class="comment-item"><span class="comment-avatar">01</span><div><span class="comment-author">评论同步说明</span><p class="comment-text">评论正文由小红书登录态与动态接口加载，静态展览目前只呈现可核验的评论总数。</p><span class="comment-time">平台访问限制</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">数</span><div><span class="comment-author">公开数据快照</span><p class="comment-text">这件作品公开显示 70 条评论。</p><span class="comment-time">读取于 2026.08.04</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">↗</span><div><span class="comment-author">完整评论区</span><p class="comment-text"><a class="comment-open" href="https://www.xiaohongshu.com/explore/653cec72000000002202f282?xsec_token=CBGsZVwBu7y8AWhe8hEA2yXTGRrpLva7pTg43_00B1hEg=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看全部真实评论 ↗</a></p><span class="comment-time">原作页面</span></div></article>
+                                        <article class="comment-item"><span class="comment-avatar">滑</span><div><span class="comment-author">展览交互</span><p class="comment-text">右侧评论框可以独立上下滑动，切换作品时会同步更换内容。</p><span class="comment-time">向下滑动查看</span></div></article>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <nav class="carousel-controls" aria-label="展览切换控制">
+                <button class="arrow prev" id="prev" type="button" aria-label="上一件作品">←</button>
+                <div class="progress">
+                    <span class="counter"><b id="current">01</b> / <span id="total">07</span></span>
+                    <div class="dots" id="dots" aria-label="选择作品"></div>
+                </div>
+                <button class="arrow next" id="next" type="button" aria-label="下一件作品">→</button>
+            </nav>
+            <p class="footnote">互动数据为 2026.08.04 读取时的公开快照；平台数据会继续变化。</p>
+        </section>
+        </div>
+    </main>
+
+    <noscript>请启用 JavaScript 以左右切换展览作品；你仍可通过页面中的原始链接观看视频。</noscript>
+    <script>
+        (() => {
+            const track = document.getElementById('track');
+            const viewport = document.getElementById('viewport');
+            const originalSlides = Array.from(track.querySelectorAll('.slide'));
+            if (originalSlides[3]) {
+                track.insertBefore(originalSlides[3], originalSlides[0]);
+            }
+            const slides = Array.from(track.querySelectorAll('.slide'));
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+            const current = document.getElementById('current');
+            const total = document.getElementById('total');
+            const dots = document.getElementById('dots');
+            let index = 0;
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let wheelGestureActive = false;
+            let wheelGestureTimer;
+            let parentWheelDelta = 0;
+            let parentWheelFrame = 0;
+
+            function forwardVerticalWheel(deltaY) {
+                parentWheelDelta += deltaY;
+                if (parentWheelFrame) return;
+
+                parentWheelFrame = window.requestAnimationFrame(() => {
+                    window.parent.postMessage({
+                        type: 'ginger-exhibition-vertical-wheel',
+                        deltaY: parentWheelDelta
+                    }, '*');
+                    parentWheelDelta = 0;
+                    parentWheelFrame = 0;
+                });
+            }
+
+            slides.forEach((slide, i) => {
+                slide.setAttribute('aria-label', `第 ${i + 1} 件作品，共 ${slides.length} 件`);
+                const workLabel = slide.querySelector('.work-label');
+                if (workLabel) {
+                    workLabel.textContent = workLabel.textContent.replace(
+                        /WORK \d+/,
+                        `WORK ${String(i + 1).padStart(2, '0')}`
+                    );
+                }
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'dot';
+                dot.setAttribute('aria-label', `查看第 ${i + 1} 件作品`);
+                dot.addEventListener('click', () => goTo(i));
+                dots.appendChild(dot);
+            });
+            total.textContent = String(slides.length).padStart(2, '0');
+
+            function syncMedia() {
+                slides.forEach((slide, i) => {
+                    const video = slide.querySelector('video');
+                    if (!video) return;
+                    if (i === index) {
+                        if (!video.src) {
+                            video.src = video.dataset.src;
+                            video.load();
+                        }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }
+
+            function render() {
+                track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
+                slides.forEach((slide, i) => {
+                    const active = i === index;
+                    slide.setAttribute('aria-hidden', String(!active));
+                    if (active) slide.removeAttribute('inert');
+                    else slide.setAttribute('inert', '');
+                });
+                Array.from(dots.children).forEach((dot, i) => {
+                    const active = i === index;
+                    dot.classList.toggle('active', active);
+                    dot.setAttribute('aria-current', active ? 'true' : 'false');
+                });
+                current.textContent = String(index + 1).padStart(2, '0');
+                prev.disabled = index === 0;
+                next.disabled = index === slides.length - 1;
+                syncMedia();
+            }
+
+            function goTo(nextIndex) {
+                index = Math.max(0, Math.min(nextIndex, slides.length - 1));
+                render();
+            }
+
+            prev.addEventListener('click', () => goTo(index - 1));
+            next.addEventListener('click', () => goTo(index + 1));
+            window.addEventListener('keydown', event => {
+                const tag = event.target && event.target.tagName;
+                if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+                if (event.key === 'ArrowLeft') goTo(index - 1);
+                if (event.key === 'ArrowRight') goTo(index + 1);
+            });
+            viewport.addEventListener('touchstart', event => {
+                touchStartX = event.touches[0].clientX;
+                touchStartY = event.touches[0].clientY;
+            }, { passive: true });
+            viewport.addEventListener('touchend', event => {
+                const dx = touchStartX - event.changedTouches[0].clientX;
+                const dy = touchStartY - event.changedTouches[0].clientY;
+                if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) goTo(index + (dx > 0 ? 1 : -1));
+            }, { passive: true });
+            viewport.addEventListener('wheel', event => {
+                const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+                if (!horizontal) {
+                    const scrollArea = event.target instanceof Element
+                        ? event.target.closest('.work-copy')
+                        : null;
+                    const canScrollInside = scrollArea && (
+                        (event.deltaY < 0 && scrollArea.scrollTop > 0) ||
+                        (event.deltaY > 0 && scrollArea.scrollTop + scrollArea.clientHeight < scrollArea.scrollHeight - 1)
+                    );
+
+                    if (
+                        !canScrollInside &&
+                        document.documentElement.classList.contains('is-embedded') &&
+                        window.matchMedia('(min-width: 901px)').matches &&
+                        Math.abs(event.deltaY) > 0
+                    ) {
+                        forwardVerticalWheel(event.deltaY);
+                    }
+                    return;
+                }
+                if (Math.abs(event.deltaX) < 8) return;
+
+                event.preventDefault();
+                window.clearTimeout(wheelGestureTimer);
+                if (!wheelGestureActive) {
+                    wheelGestureActive = true;
+                    goTo(index + (event.deltaX > 0 ? 1 : -1));
+                }
+                wheelGestureTimer = window.setTimeout(() => {
+                    wheelGestureActive = false;
+                }, 180);
+            }, { passive: false });
+
+            window.addEventListener('wheel', event => {
+                const target = event.target instanceof Element ? event.target : null;
+                if (
+                    !document.documentElement.classList.contains('is-embedded') ||
+                    !window.matchMedia('(min-width: 901px)').matches ||
+                    viewport.contains(target) ||
+                    Math.abs(event.deltaX) > Math.abs(event.deltaY) ||
+                    Math.abs(event.deltaY) === 0
+                ) return;
+
+                forwardVerticalWheel(event.deltaY);
+            }, { passive: true });
+
+            render();
+        })();
+    </script>
+</body>
+</html>

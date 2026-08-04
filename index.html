@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ginger Li | 个人网站</title>
+    <title>GINGER.LAB｜把增长问题做成好玩的产品</title>
+    <meta name="description" content="Ginger Li 的个人实验室：腾讯产品运营、内容创作者与 AI 效率玩家，把增长问题做成好玩的产品。">
+    <meta name="theme-color" content="#C7F000">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GINGER.LAB｜把增长问题，做成好玩的产品">
+    <meta property="og:description" content="产品运营 × 内容创作 × AI 探索。来看看 Ginger 的增长实验和支线任务。">
+    <meta property="og:url" content="https://liability0809.github.io/GoGoJuice/">
+    <meta property="og:image" content="https://liability0809.github.io/GoGoJuice/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GINGER.LAB｜把增长问题，做成好玩的产品">
+    <meta name="twitter:description" content="产品运营 × 内容创作 × AI 探索。来看看 Ginger 的增长实验和支线任务。">
+    <meta name="twitter:image" content="https://liability0809.github.io/GoGoJuice/og.png">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         :root {
@@ -807,6 +820,790 @@
         /* Fade-up animation */
         .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
         .fade-up.visible { opacity:1; transform:translateY(0); }
+
+        /* ===== GINGER LAB / PLAYFUL REDESIGN ===== */
+        :root {
+            --primary:#304FFE;
+            --primary-light:#6C7BFF;
+            --primary-lighter:#E4E8FF;
+            --primary-softbg:#F1F3FF;
+            --accent:#BDF400;
+            --dark:#11120F;
+            --gray:#666960;
+            --light-gray:#F4F1E8;
+            --border:#11120F;
+            --fun-paper:#F5F1E7;
+            --fun-ink:#11120F;
+            --fun-lime:#C7F000;
+            --fun-blue:#304FFE;
+            --fun-coral:#FF725E;
+            --fun-yellow:#FFD84A;
+        }
+        * { -webkit-tap-highlight-color:transparent; }
+        body {
+            background:var(--fun-paper);
+            color:var(--fun-ink);
+            font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Microsoft YaHei",sans-serif;
+            letter-spacing:-0.01em;
+        }
+        body::before {
+            content:""; position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:.16;
+            background-image:radial-gradient(rgba(17,18,15,.28) .55px, transparent .55px);
+            background-size:5px 5px;
+            mix-blend-mode:multiply;
+        }
+        ::selection { background:var(--fun-lime); color:#111; }
+        a, button { font:inherit; }
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+            outline:3px solid var(--fun-yellow); outline-offset:4px;
+        }
+
+        /* Navigation */
+        nav { background:transparent; }
+        nav.scrolled {
+            background:rgba(245,241,231,.88); border-bottom:1.5px solid var(--fun-ink);
+            box-shadow:none;
+        }
+        .nav-inner { max-width:1220px; height:72px; padding:0 30px; }
+        .nav-brand, nav.scrolled .nav-brand {
+            color:var(--fun-ink); font-size:16px; font-weight:900; letter-spacing:.06em;
+            text-shadow:none;
+        }
+        .nav-brand .brand-dot {
+            width:11px; height:11px; background:var(--fun-lime); border:2px solid var(--fun-ink);
+            box-shadow:none; animation:none;
+        }
+        .nav-links { gap:2px; }
+        .nav-links a, nav.scrolled .nav-links a {
+            color:var(--fun-ink); text-shadow:none; padding:9px 13px; border:1.5px solid transparent;
+            border-radius:999px; font-size:13px; font-weight:700;
+        }
+        .nav-links a:hover, nav.scrolled .nav-links a:hover {
+            color:var(--fun-ink); background:var(--fun-lime); border-color:var(--fun-ink);
+        }
+        .nav-links a.active, nav.scrolled .nav-links a.active { color:var(--fun-ink); }
+        .nav-links a.active::after { bottom:0; width:6px; height:6px; border-radius:50%; background:var(--fun-blue); }
+
+        /* Hero */
+        #hero {
+            min-height:780px; height:100vh; background:var(--fun-paper); border-bottom:2px solid var(--fun-ink);
+            align-items:stretch;
+        }
+        .hero-bg {
+            inset:15% 5.5% auto auto; width:45%; height:71%; border-radius:36px;
+            background-position:center 35%; filter:saturate(.92) contrast(.96);
+            border:2px solid var(--fun-ink); box-shadow:14px 14px 0 var(--fun-blue);
+            animation:heroFloat 8s ease-in-out infinite;
+        }
+        @keyframes heroFloat { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-8px) rotate(.4deg)} }
+        .hero-overlay {
+            background:
+                radial-gradient(circle at 88% 20%, rgba(199,240,0,.9) 0 6%, transparent 6.2%),
+                radial-gradient(circle at 54% 88%, rgba(255,114,94,.85) 0 7%, transparent 7.2%);
+        }
+        .hero-particles { opacity:.28; }
+        .particle { background:var(--fun-blue) !important; border:1px solid var(--fun-ink); }
+        .hero-content, .hero-content.align-left, .hero-content.align-right {
+            max-width:1220px; margin:0 auto; padding:130px 30px 96px; justify-content:flex-start; align-items:center;
+        }
+        .hero-card {
+            max-width:600px; width:51%; padding:0; background:transparent; border:0; border-radius:0;
+            box-shadow:none; overflow:visible;
+        }
+        .hero-card::before { display:none; }
+        .hero-hi {
+            margin-bottom:24px; padding:8px 14px; background:var(--fun-lime); color:var(--fun-ink);
+            border:2px solid var(--fun-ink); border-radius:999px; font-size:11px; letter-spacing:.12em;
+            box-shadow:3px 3px 0 var(--fun-ink);
+        }
+        .hero-hi .wave { font-size:10px; animation:statusPulse 1.6s ease infinite; }
+        @keyframes statusPulse { 50%{opacity:.35} }
+        .hero-name { margin:0 0 18px; line-height:1; color:var(--fun-ink); }
+        .hero-signature { display:block; margin-bottom:12px; font-size:13px; letter-spacing:.16em; font-weight:900; }
+        .hero-punchline { display:block; font-size:clamp(58px,7vw,108px); line-height:.9; letter-spacing:-.075em; font-weight:950; white-space:nowrap; }
+        .hero-name .grad {
+            color:var(--fun-blue); background:none; -webkit-text-fill-color:initial; position:relative; white-space:nowrap;
+        }
+        .hero-name .grad::after {
+            content:""; position:absolute; left:0; right:0; bottom:1px; height:9px; z-index:-1;
+            background:var(--fun-lime); transform:rotate(-1deg);
+        }
+        .hero-title { margin-bottom:18px; color:var(--gray); font-size:15px; font-weight:650; }
+        .hero-title span { color:var(--fun-ink); font-weight:850; }
+        .hero-badges { margin-bottom:18px; gap:7px; }
+        .hero-badge {
+            background:#fff; color:var(--fun-ink); border:1.5px solid var(--fun-ink); border-radius:999px;
+            font-size:11px; padding:6px 10px; box-shadow:2px 2px 0 var(--fun-ink);
+        }
+        .hero-badge:nth-child(2) { background:#E8EBFF; }
+        .hero-badge:nth-child(3) { background:#FFE2DC; }
+        .hero-badge:nth-child(4) { background:#F4FFCB; }
+        .hero-badge:hover { background:var(--fun-yellow); border-color:var(--fun-ink); color:var(--fun-ink); }
+        .hero-stats {
+            margin-bottom:18px; padding:13px 10px; gap:0; background:#fff; border:2px solid var(--fun-ink);
+            border-radius:15px; box-shadow:4px 4px 0 var(--fun-ink);
+        }
+        .hero-stat + .hero-stat { border-left:1.5px solid var(--fun-ink); }
+        .hero-stat-num { color:var(--fun-blue); font-size:16px; }
+        .hero-stat-label { color:var(--gray); font-size:9.5px; letter-spacing:.02em; }
+        .persona-switch { display:flex; gap:7px; margin:4px 0 11px; }
+        .persona-chip {
+            cursor:pointer; border:1.5px solid var(--fun-ink); border-radius:999px; background:transparent;
+            color:var(--fun-ink); padding:6px 11px; font-size:11px; font-weight:800; transition:.2s ease;
+        }
+        .persona-chip:hover, .persona-chip.active { background:var(--fun-ink); color:#fff; transform:translateY(-1px); }
+        .hero-desc {
+            min-height:48px; color:#4F514B; font-size:13px; line-height:1.65; padding-left:13px;
+            border-left:4px solid var(--fun-coral); transition:opacity .2s, transform .2s;
+        }
+        .hero-desc.is-changing { opacity:0; transform:translateY(5px); }
+        .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:19px; }
+        .hero-cta {
+            min-height:44px; display:inline-flex; align-items:center; justify-content:center; gap:12px;
+            padding:0 17px; border:2px solid var(--fun-ink); border-radius:12px; cursor:pointer;
+            text-decoration:none; font-size:12px; font-weight:850; transition:.2s ease;
+        }
+        .hero-cta-primary { background:var(--fun-blue); color:#fff; box-shadow:4px 4px 0 var(--fun-ink); }
+        .hero-cta-primary:hover { transform:translate(-1px,-1px); box-shadow:6px 6px 0 var(--fun-ink); }
+        .hero-cta-ghost { background:transparent; color:var(--fun-ink); }
+        .hero-cta-ghost:hover { background:var(--fun-yellow); transform:rotate(-1deg); }
+        .hero-scroll { display:none; }
+        .hero-top-right { top:88px; right:5.5%; }
+        .visitor-badge { display:none; }
+        .theme-toggle {
+            width:42px; height:42px; color:var(--fun-ink); background:var(--fun-yellow);
+            border:2px solid var(--fun-ink); box-shadow:4px 4px 0 var(--fun-ink);
+        }
+
+        /* Moving editorial tape */
+        .marquee-strip {
+            overflow:hidden; border-bottom:2px solid var(--fun-ink); background:var(--fun-lime); color:var(--fun-ink);
+            transform:rotate(-.35deg); transform-origin:center; margin:-1px -4px 0; position:relative; z-index:3;
+        }
+        .marquee-track {
+            display:flex; width:max-content; align-items:center; gap:22px; padding:12px 0;
+            font-size:12px; font-weight:950; letter-spacing:.12em; animation:marquee 24s linear infinite;
+        }
+        .marquee-track b { color:var(--fun-blue); font-size:18px; }
+        @keyframes marquee { to{transform:translateX(-50%)} }
+
+        /* Shared section typography */
+        section:not(#hero) { padding:112px 0; }
+        .container { max-width:1160px; padding:0 30px; }
+        .section-label {
+            display:table; width:auto; margin:0 0 18px; padding:7px 11px; background:var(--fun-lime);
+            color:var(--fun-ink); border:1.5px solid var(--fun-ink); border-radius:999px;
+            font-size:10px; letter-spacing:.13em; text-align:left; box-shadow:2px 2px 0 var(--fun-ink);
+        }
+        .section-title {
+            max-width:820px; margin:0 0 14px; color:var(--fun-ink); text-align:left;
+            font-size:clamp(38px,5vw,64px); line-height:1.04; letter-spacing:-.055em; font-weight:950;
+        }
+        .section-intro { max-width:630px; margin:0 0 48px; color:var(--gray); font-size:15px; line-height:1.7; }
+
+        /* About / profile cards */
+        #about { background:var(--fun-blue); color:#fff; border-bottom:2px solid var(--fun-ink); }
+        #about .section-label { background:var(--fun-yellow); }
+        #about .section-title { color:#fff; max-width:900px; }
+        #about .section-intro { color:rgba(255,255,255,.72); }
+        .about-grid { grid-template-columns:repeat(12,1fr); gap:20px; }
+        .about-card {
+            min-height:255px; padding:27px; border:2px solid var(--fun-ink); border-radius:24px;
+            background:#fff; color:var(--fun-ink); box-shadow:7px 7px 0 var(--fun-ink); cursor:pointer;
+        }
+        .about-card:nth-child(1), .about-card:nth-child(4) { grid-column:span 7; }
+        .about-card:nth-child(2), .about-card:nth-child(3) { grid-column:span 5; }
+        .about-card:nth-child(1) { background:#F7FFDA; }
+        .about-card:nth-child(2) { background:#FFE3DD; }
+        .about-card:nth-child(3) { background:#FFF0A8; }
+        .about-card:nth-child(4) { background:#E8EBFF; }
+        .about-card:hover { border-color:var(--fun-ink); box-shadow:11px 11px 0 var(--fun-ink); }
+        .about-icon {
+            width:54px; height:54px; border:2px solid var(--fun-ink); border-radius:16px; background:#fff !important;
+            box-shadow:3px 3px 0 var(--fun-ink);
+        }
+        .about-card-title { font-size:23px; font-weight:900; letter-spacing:-.04em; }
+        .about-card-sub { color:var(--fun-blue); font-size:11px; font-weight:850; letter-spacing:.03em; }
+        .about-card-desc { max-width:600px; color:#4E5049; font-size:13px; line-height:1.75; }
+        .about-card::before {
+            content:"CLICK TO FLIP ↗"; position:absolute; top:23px; right:24px; font-size:8px; font-weight:900;
+            letter-spacing:.1em; color:var(--gray);
+        }
+        .about-card-back {
+            background:var(--fun-ink); color:#fff; border-radius:21px; padding:28px;
+        }
+        .about-card-back .back-hint { color:var(--fun-lime); }
+
+        /* Growth lab */
+        #work {
+            background:#121310; color:#fff; border-bottom:2px solid #121310;
+            background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px); background-size:18px 18px;
+        }
+        #work::before, #work::after { display:none; }
+        #work .section-label { background:var(--fun-coral); color:var(--fun-ink); }
+        #work .section-title { color:#fff; }
+        #work .section-intro { color:rgba(255,255,255,.62); }
+        .tencent-header {
+            padding:20px 22px; margin-bottom:14px; background:var(--fun-lime); border:2px solid #fff;
+            border-radius:20px; box-shadow:7px 7px 0 var(--fun-blue);
+        }
+        .tencent-logo { background:var(--fun-ink); border:2px solid #fff; border-radius:17px; }
+        .tencent-info h3 { color:var(--fun-ink); font-size:23px; }
+        .tencent-info p { color:#43463F; }
+        .tencent-tag { background:#fff; color:var(--fun-ink); border:1.5px solid var(--fun-ink); box-shadow:2px 2px 0 var(--fun-ink); }
+        .tencent-overview {
+            padding:20px 23px; margin-bottom:20px; background:transparent; border:1.5px solid rgba(255,255,255,.35);
+            box-shadow:none; border-radius:18px;
+        }
+        .tencent-overview strong { color:var(--fun-lime); }
+        .work-hero-summary {
+            gap:10px; margin-bottom:20px; padding:10px; background:#fff; border:2px solid #fff;
+            border-radius:18px; box-shadow:7px 7px 0 var(--fun-coral);
+        }
+        .work-hero-stat { padding:14px 8px; border-color:var(--fun-ink); }
+        .work-hero-stat-num { color:var(--fun-blue); font-size:20px; }
+        .work-hero-stat-num .highlight { color:var(--fun-blue); background:none; -webkit-text-fill-color:initial; }
+        .work-hero-stat-label { color:#555850; }
+        .work-cards-grid { gap:14px; }
+        .work-cards-grid .tencent-card {
+            min-height:390px; padding:26px 22px; border:2px solid #fff; border-radius:22px;
+            box-shadow:none; color:var(--fun-ink);
+        }
+        .work-cards-grid .tencent-card:nth-child(1) { background:var(--fun-coral); }
+        .work-cards-grid .tencent-card:nth-child(2) { background:var(--fun-blue); color:#fff; }
+        .work-cards-grid .tencent-card:nth-child(3) { background:var(--fun-lime); }
+        .work-cards-grid .tencent-card:hover { transform:translateY(-8px) rotate(-.6deg); border-color:#fff; box-shadow:7px 7px 0 #fff; }
+        .work-cards-grid .tencent-card:nth-child(2):hover { transform:translateY(-8px) rotate(.6deg); }
+        .work-cards-grid .tencent-card .card-dim-name { color:inherit !important; font-size:19px; font-weight:900; }
+        .work-cards-grid .tencent-card .card-dim-sub { color:inherit; opacity:.65; }
+        .work-cards-grid .tencent-card .card-item { color:inherit; opacity:.92; }
+        .work-cards-grid .tencent-card .card-item::before { color:inherit; }
+        .card-dim-icon { background:#fff !important; border:1.5px solid var(--fun-ink); box-shadow:2px 2px 0 var(--fun-ink); }
+        .card-metric {
+            background:var(--fun-ink); color:#fff; border:1px solid currentColor; border-radius:999px; font-size:9.5px;
+        }
+        .tencent-card:nth-child(2) .card-metric { background:#fff; color:var(--fun-blue); }
+
+        /* Experience map */
+        #internship { background:var(--fun-paper); border-bottom:2px solid var(--fun-ink); }
+        #internship .section-label { background:var(--fun-yellow); }
+        .edu-block, .intern-block {
+            padding:28px; background:#fff; border:2px solid var(--fun-ink); border-radius:24px;
+            box-shadow:7px 7px 0 var(--fun-ink); margin-bottom:28px;
+        }
+        .block-header-icon { background:var(--fun-lime); border:1.5px solid var(--fun-ink); box-shadow:2px 2px 0 var(--fun-ink); }
+        .edu-card { background:#F7FFDA; border:1.5px solid var(--fun-ink); border-radius:18px; }
+        .edu-logo { border:1.5px solid var(--fun-ink); }
+        .edu-photo img { border:1.5px solid var(--fun-ink); box-shadow:4px 4px 0 var(--fun-blue); }
+        .edu-badge { background:#fff; border:1px solid var(--fun-ink); color:var(--fun-ink); }
+        .skills-section { border-top:1.5px solid var(--fun-ink); }
+        .skill-group { background:var(--fun-paper); border:1.5px solid var(--fun-ink); }
+        .skill-tag { background:#fff; border:1px solid #C9C5B9; color:var(--fun-ink); }
+        .intern-slider-wrapper { overflow:hidden; }
+        .intern-slider { gap:16px; }
+        .intern-card {
+            border:2px solid var(--fun-ink); border-radius:20px; background:#F6F3EA;
+            box-shadow:4px 4px 0 var(--fun-ink); transition:.25s ease;
+        }
+        .intern-card:nth-child(3n+1) { background:#E8EBFF; }
+        .intern-card:nth-child(3n+2) { background:#FFE3DD; }
+        .intern-card:nth-child(3n) { background:#F7FFDA; }
+        .intern-card:hover { transform:translateY(-5px); box-shadow:7px 7px 0 var(--fun-ink); }
+        .intern-company-logo { border:1.5px solid var(--fun-ink); }
+        .intern-metric { background:#fff; border:1px solid var(--fun-ink); color:var(--fun-ink); }
+        .intern-btn { border:2px solid var(--fun-ink); background:var(--fun-lime); color:var(--fun-ink); box-shadow:2px 2px 0 var(--fun-ink); }
+        .intern-dot.active { background:var(--fun-blue); }
+
+        /* Side quests */
+        #projects { background:var(--fun-coral); border-bottom:2px solid var(--fun-ink); }
+        #projects .section-label { background:#fff; }
+        #projects .section-title { color:var(--fun-ink); }
+        #projects .section-intro { color:#5E342D; }
+        .projects-layout { gap:20px; }
+        .xiaohongshu-card {
+            background:#fff; border:2px solid var(--fun-ink); border-radius:24px;
+            box-shadow:8px 8px 0 var(--fun-ink);
+        }
+        .xhs-logo, .xhs-avatar { border:1.5px solid var(--fun-ink); }
+        .xhs-stat { background:#FFF4F1; border:1.5px solid var(--fun-ink); }
+        .xhs-stat-num { color:var(--fun-blue); }
+        .xhs-tag { background:var(--fun-lime); border:1px solid var(--fun-ink); color:var(--fun-ink); }
+        .xhs-link { background:var(--fun-blue); border:2px solid var(--fun-ink); box-shadow:3px 3px 0 var(--fun-ink); }
+        .proj-card {
+            background:#FFF2AF; border:2px solid var(--fun-ink); border-radius:22px;
+            box-shadow:6px 6px 0 var(--fun-ink);
+        }
+        .proj-card:nth-child(2) { background:#E6EAFF; }
+        .proj-card:hover { background:var(--fun-lime); border-color:var(--fun-ink); transform:translateY(-5px) rotate(.4deg); }
+        .proj-card-badge { background:var(--fun-ink); color:#fff; }
+        .proj-card-tag { background:#fff; border:1px solid var(--fun-ink); color:var(--fun-ink); }
+
+        /* Contact */
+        #contact { background:var(--fun-blue); color:#fff; }
+        #contact .section-label { background:var(--fun-lime); }
+        #contact .section-title { color:#fff; }
+        #contact .section-intro { color:rgba(255,255,255,.72); }
+        .contact-info-card, .wechat-card {
+            background:var(--fun-paper); border:2px solid var(--fun-ink); border-radius:24px;
+            box-shadow:8px 8px 0 var(--fun-ink); color:var(--fun-ink);
+        }
+        .contact-info-card h3, .wechat-card h3 { color:var(--fun-ink); font-size:24px; }
+        .contact-icon { background:var(--fun-lime); border:1.5px solid var(--fun-ink); }
+        .contact-item-value { color:var(--fun-ink); }
+        .qr-wrap { border:2px solid var(--fun-ink); box-shadow:5px 5px 0 var(--fun-coral); }
+        footer { padding:30px; background:var(--fun-ink); border-top:2px solid var(--fun-lime); }
+        footer span { color:var(--fun-lime); }
+
+        /* Useful play, not fake music */
+        .mini-music { display:none !important; }
+        .vibe-switcher {
+            position:fixed; left:22px; bottom:22px; z-index:997; display:flex; align-items:center; gap:10px;
+            max-width:260px; padding:9px 13px 9px 9px; color:var(--fun-ink); background:rgba(245,241,231,.94);
+            border:2px solid var(--fun-ink); border-radius:999px; box-shadow:4px 4px 0 var(--fun-ink);
+            cursor:pointer; transition:.2s ease; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+        }
+        .vibe-switcher:hover { transform:translateY(-3px) rotate(-1deg); }
+        .vibe-dot { width:30px; height:30px; flex:0 0 30px; border-radius:50%; background:var(--fun-lime); border:1.5px solid var(--fun-ink); position:relative; }
+        .vibe-dot::after { content:"↻"; position:absolute; inset:0; display:grid; place-items:center; font-size:14px; font-weight:900; }
+        .vibe-copy { display:flex; min-width:0; flex-direction:column; gap:1px; }
+        .vibe-copy small { font-size:7px; letter-spacing:.15em; font-weight:900; color:var(--fun-blue); }
+        .vibe-copy strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:10px; font-weight:800; }
+        .fact-toast {
+            position:fixed; left:50%; bottom:34px; z-index:2001; max-width:min(460px,calc(100vw - 36px));
+            padding:14px 18px; background:var(--fun-yellow); color:var(--fun-ink); border:2px solid var(--fun-ink);
+            border-radius:14px; box-shadow:6px 6px 0 var(--fun-ink); font-size:13px; font-weight:800;
+            opacity:0; transform:translate(-50%,24px) rotate(1deg); pointer-events:none; transition:.3s cubic-bezier(.2,.8,.2,1);
+        }
+        .fact-toast.show { opacity:1; transform:translate(-50%,0) rotate(-1deg); }
+        .back-to-top { background:var(--fun-lime); color:var(--fun-ink); border:2px solid var(--fun-ink); box-shadow:4px 4px 0 var(--fun-ink); }
+        .back-to-top:hover { box-shadow:6px 6px 0 var(--fun-ink); }
+        .easter-egg-badge { border:1.5px solid var(--fun-ink); box-shadow:3px 3px 0 var(--fun-ink); }
+
+        /* Color-invert mode */
+        body.dark-mode { --fun-paper:#161713; --fun-ink:#F6F2E8; background:var(--fun-paper); }
+        body.dark-mode::before { opacity:.08; }
+        body.dark-mode nav.scrolled { background:rgba(22,23,19,.9); }
+        body.dark-mode .nav-brand, body.dark-mode nav.scrolled .nav-brand,
+        body.dark-mode .nav-links a, body.dark-mode nav.scrolled .nav-links a { color:var(--fun-ink); }
+        body.dark-mode #hero { background:var(--fun-paper); }
+        body.dark-mode .hero-name, body.dark-mode .hero-title span, body.dark-mode .persona-chip,
+        body.dark-mode .hero-cta-ghost { color:var(--fun-ink); }
+        body.dark-mode .hero-desc, body.dark-mode .hero-title { color:#B9B9B0; }
+        body.dark-mode .hero-name .grad { color:#8390FF; }
+        body.dark-mode .hero-bg { border-color:var(--fun-ink); box-shadow:14px 14px 0 var(--fun-lime); }
+        body.dark-mode #internship { background:var(--fun-paper); }
+        body.dark-mode #internship .section-title { color:var(--fun-ink); }
+        body.dark-mode .section-intro { color:#AFAFA7; }
+        body.dark-mode .vibe-switcher { background:rgba(22,23,19,.94); color:var(--fun-ink); border-color:var(--fun-ink); box-shadow:4px 4px 0 var(--fun-lime); }
+
+        @media (max-width:980px) {
+            .nav-links a { padding:8px 8px; font-size:11px; }
+            .hero-punchline { font-size:clamp(42px,6vw,60px); }
+            .hero-bg { width:42%; }
+            .hero-card { width:55%; }
+            .about-card:nth-child(n) { grid-column:span 6; }
+            .work-cards-grid { grid-template-columns:1fr; }
+            .work-cards-grid .tencent-card { min-height:0; }
+        }
+        @media (max-width:720px) {
+            body::before { display:none; }
+            .nav-inner { height:62px; padding:0 18px; }
+            .nav-links { display:none; }
+            #hero { height:auto; min-height:1080px; }
+            .hero-content, .hero-content.align-left, .hero-content.align-right {
+                align-items:flex-start; padding:105px 20px 440px; justify-content:flex-start;
+            }
+            .hero-card { width:100%; max-width:none; }
+            .hero-punchline { font-size:clamp(42px,13vw,58px); }
+            .hero-name .grad { white-space:normal; }
+            .hero-bg {
+                top:auto; left:20px; right:20px; bottom:64px; width:auto; height:330px; border-radius:25px;
+                box-shadow:9px 9px 0 var(--fun-blue); background-position:center 30%;
+            }
+            .hero-overlay { background:radial-gradient(circle at 90% 64%, rgba(199,240,0,.9) 0 6%, transparent 6.2%); }
+            .hero-top-right { top:74px; right:18px; }
+            .theme-toggle { width:38px; height:38px; }
+            .hero-stats { padding:11px 5px; }
+            .hero-stat-num { font-size:14px; }
+            .hero-stat-label { font-size:8.5px; }
+            .persona-switch { overflow-x:auto; padding-bottom:3px; }
+            .persona-chip { flex:0 0 auto; }
+            .hero-actions { display:grid; grid-template-columns:1fr 1fr; }
+            .hero-cta { padding:0 10px; }
+            section:not(#hero) { padding:78px 0; }
+            .container { padding:0 20px; }
+            .section-title { font-size:40px; }
+            .section-intro { margin-bottom:34px; font-size:14px; }
+            .about-grid { grid-template-columns:1fr; gap:16px; }
+            .about-card:nth-child(n) { grid-column:auto; min-height:250px; }
+            .work-hero-summary { grid-template-columns:repeat(2,1fr); }
+            .work-hero-stat:nth-child(5) { grid-column:1/-1; }
+            .tencent-header { align-items:flex-start; }
+            .tencent-tags { width:100%; margin-left:0; }
+            .edu-block, .intern-block { padding:18px; }
+            .edu-photo { width:100%; }
+            .edu-photo img { width:100%; height:230px; object-position:center 25%; }
+            .projects-layout, .contact-grid { grid-template-columns:1fr; }
+            .vibe-switcher { left:14px; bottom:14px; max-width:210px; }
+            .vibe-copy strong { max-width:145px; }
+            .back-to-top { right:14px; bottom:14px; }
+            .fact-toast { bottom:78px; }
+        }
+
+        /* ===== MOVING IMAGE / IMMERSIVE DARK SYSTEM ===== */
+        :root {
+            --primary:#304FFE;
+            --primary-light:#6C7BFF;
+            --primary-lighter:#232B70;
+            --primary-softbg:#171A2B;
+            --accent:#C7F000;
+            --dark:#11120F;
+            --gray:#9B9E96;
+            --light-gray:#161713;
+            --border:rgba(245,241,231,.18);
+            --fun-paper:#11120F;
+            --fun-ink:#F5F1E7;
+            --fun-lime:#C7F000;
+            --fun-blue:#304FFE;
+            --fun-coral:#FF725E;
+            --fun-yellow:#FFD84A;
+        }
+        html { background:var(--dark); }
+        body,
+        body.dark-mode {
+            color:var(--fun-ink);
+            background:
+                radial-gradient(circle at 92% 3%, rgba(48,79,254,.14), transparent 32rem),
+                radial-gradient(circle at 4% 96%, rgba(199,240,0,.045), transparent 30rem),
+                var(--dark);
+        }
+        body::before,
+        body.dark-mode::before {
+            display:block;
+            opacity:.11;
+            background-image:radial-gradient(rgba(245,241,231,.42) .55px, transparent .55px);
+            background-size:5px 5px;
+            mix-blend-mode:screen;
+        }
+        .theme-toggle { display:none; }
+
+        /* Dark navigation */
+        nav,
+        nav.scrolled,
+        body.dark-mode nav.scrolled {
+            background:rgba(17,18,15,.9);
+            border-bottom:1px solid rgba(245,241,231,.16);
+            box-shadow:none;
+            backdrop-filter:blur(18px);
+            -webkit-backdrop-filter:blur(18px);
+        }
+        .nav-inner { max-width:1380px; }
+        .nav-brand,
+        nav.scrolled .nav-brand,
+        body.dark-mode .nav-brand,
+        body.dark-mode nav.scrolled .nav-brand,
+        .nav-links a,
+        nav.scrolled .nav-links a,
+        body.dark-mode .nav-links a,
+        body.dark-mode nav.scrolled .nav-links a {
+            color:var(--fun-ink);
+        }
+        .nav-brand .brand-dot {
+            background:var(--fun-lime);
+            border-color:var(--fun-ink);
+        }
+        .nav-links a:hover,
+        nav.scrolled .nav-links a:hover {
+            color:var(--dark);
+            background:var(--fun-lime);
+            border-color:var(--fun-lime);
+        }
+
+        /* Hero becomes the opening room of the archive */
+        #hero,
+        body.dark-mode #hero {
+            color:var(--fun-ink);
+            background:transparent;
+            border-bottom:1px solid rgba(245,241,231,.18);
+        }
+        .hero-bg,
+        body.dark-mode .hero-bg {
+            border-color:rgba(245,241,231,.55);
+            box-shadow:12px 12px 0 var(--fun-blue);
+            filter:saturate(.82) contrast(1.06) brightness(.82);
+        }
+        .hero-overlay {
+            background:
+                linear-gradient(90deg, rgba(17,18,15,.08), rgba(17,18,15,.26)),
+                radial-gradient(circle at 89% 20%, rgba(199,240,0,.82) 0 5.5%, transparent 5.8%);
+        }
+        .hero-hi {
+            color:var(--dark);
+            background:var(--fun-lime);
+            border-color:var(--fun-lime);
+            box-shadow:none;
+        }
+        .hero-name,
+        body.dark-mode .hero-name { color:var(--fun-ink); }
+        .hero-signature { color:var(--fun-lime); }
+        .hero-punchline { color:var(--fun-ink); }
+        .hero-name .grad,
+        body.dark-mode .hero-name .grad { color:#526BFF; }
+        .hero-name .grad::after { height:5px; background:var(--fun-lime); opacity:.8; }
+        .hero-title,
+        body.dark-mode .hero-title { color:#A4A69F; }
+        .hero-title span,
+        body.dark-mode .hero-title span { color:var(--fun-ink); }
+        .hero-badge,
+        .hero-badge:nth-child(n) {
+            color:var(--fun-ink);
+            background:rgba(255,255,255,.035);
+            border-color:rgba(245,241,231,.25);
+            box-shadow:none;
+        }
+        .hero-badge:hover { color:var(--dark); background:var(--fun-lime); border-color:var(--fun-lime); }
+        .hero-stats {
+            color:var(--fun-ink);
+            background:rgba(255,255,255,.025);
+            border-color:rgba(245,241,231,.24);
+            border-radius:4px;
+            box-shadow:none;
+        }
+        .hero-stat + .hero-stat { border-color:rgba(245,241,231,.18); }
+        .hero-stat-num { color:var(--fun-lime); }
+        .hero-stat-label { color:#858880; }
+        .persona-chip,
+        body.dark-mode .persona-chip {
+            color:var(--fun-ink);
+            border-color:rgba(245,241,231,.28);
+        }
+        .persona-chip:hover,
+        .persona-chip.active { color:#fff; background:var(--fun-blue); border-color:var(--fun-blue); }
+        .hero-desc,
+        body.dark-mode .hero-desc { color:#B8BAB3; border-left-color:var(--fun-coral); }
+        .hero-cta { border-radius:4px; }
+        .hero-cta-primary { border-color:var(--fun-blue); box-shadow:none; }
+        .hero-cta-primary:hover { box-shadow:5px 5px 0 var(--fun-lime); }
+        .hero-cta-ghost,
+        body.dark-mode .hero-cta-ghost {
+            color:var(--fun-ink);
+            background:rgba(255,255,255,.02);
+            border-color:rgba(245,241,231,.3);
+        }
+        .hero-cta-ghost:hover { color:var(--dark); background:var(--fun-lime); border-color:var(--fun-lime); }
+
+        /* Archive ticker and shared section language */
+        .marquee-strip {
+            color:var(--fun-lime);
+            background:var(--dark);
+            border-color:rgba(245,241,231,.18);
+            transform:none;
+        }
+        .marquee-track b { color:var(--fun-blue); }
+        section:not(#hero),
+        #about,
+        #work,
+        #internship,
+        #projects,
+        #contact,
+        body.dark-mode #internship {
+            color:var(--fun-ink);
+            background-color:var(--dark);
+            background-image:radial-gradient(rgba(245,241,231,.075) 1px, transparent 1px);
+            background-size:18px 18px;
+            border-bottom:1px solid rgba(245,241,231,.16);
+        }
+        .container { max-width:1220px; }
+        .section-label,
+        #about .section-label,
+        #work .section-label,
+        #internship .section-label,
+        #projects .section-label,
+        #contact .section-label {
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:16px;
+            padding:0;
+            color:var(--fun-lime);
+            background:transparent;
+            border:0;
+            border-radius:0;
+            box-shadow:none;
+        }
+        .section-label::before { content:""; width:28px; height:2px; background:currentColor; }
+        .section-title,
+        #about .section-title,
+        #work .section-title,
+        #internship .section-title,
+        #projects .section-title,
+        #contact .section-title,
+        body.dark-mode #internship .section-title { color:var(--fun-ink); }
+        .section-intro,
+        #about .section-intro,
+        #work .section-intro,
+        #projects .section-intro,
+        #contact .section-intro,
+        body.dark-mode .section-intro { color:#9B9E96; }
+
+        /* Every card now belongs to the same dark exhibition system */
+        .about-card:nth-child(n),
+        .edu-block,
+        .intern-block,
+        .edu-card,
+        .intern-card:nth-child(n),
+        .work-cards-grid .tencent-card:nth-child(n),
+        .xiaohongshu-card,
+        .proj-card,
+        .proj-card:nth-child(2),
+        .contact-info-card,
+        .wechat-card {
+            color:var(--fun-ink);
+            background:#161713;
+            border-color:rgba(245,241,231,.22);
+            border-radius:18px;
+            box-shadow:none;
+        }
+        .about-card:nth-child(n):hover,
+        .intern-card:nth-child(n):hover,
+        .work-cards-grid .tencent-card:nth-child(n):hover,
+        .proj-card:hover {
+            color:var(--fun-ink);
+            background:#1B1D18;
+            border-color:var(--fun-lime);
+            box-shadow:6px 6px 0 var(--fun-blue);
+        }
+        .about-card:nth-child(3n+1),
+        .intern-card:nth-child(3n+1) { border-top:3px solid var(--fun-blue); }
+        .about-card:nth-child(3n+2),
+        .intern-card:nth-child(3n+2) { border-top:3px solid var(--fun-coral); }
+        .about-card:nth-child(3n),
+        .intern-card:nth-child(3n) { border-top:3px solid var(--fun-lime); }
+        .about-card-title,
+        .about-card-desc,
+        .block-header h3,
+        .edu-info h4,
+        .intern-company,
+        .intern-role,
+        .proj-card-title,
+        .proj-card-desc,
+        .contact-info-card h3,
+        .wechat-card h3,
+        .contact-item-value { color:var(--fun-ink); }
+        .about-card-sub,
+        .proj-card-meta,
+        .wechat-card p,
+        .edu-info p,
+        .intern-time,
+        .intern-desc { color:#999C94; }
+        .about-icon,
+        .block-header-icon,
+        .intern-company-logo,
+        .contact-icon {
+            background:var(--fun-lime) !important;
+            border-color:var(--fun-lime);
+            box-shadow:none;
+        }
+        .about-card::before { color:#73766E; }
+        .about-card-back { background:#090A08; border:1px solid rgba(245,241,231,.2); }
+        .skill-group { color:var(--fun-ink); background:#11120F; border-color:rgba(245,241,231,.2); }
+        .skill-tag,
+        .edu-badge,
+        .intern-metric,
+        .proj-card-tag,
+        .tencent-tag {
+            color:var(--fun-ink);
+            background:rgba(255,255,255,.04);
+            border-color:rgba(245,241,231,.24);
+            box-shadow:none;
+        }
+
+        /* Growth archive */
+        .tencent-header {
+            color:var(--fun-ink);
+            background:#161713;
+            border-color:rgba(245,241,231,.24);
+            box-shadow:7px 7px 0 var(--fun-blue);
+        }
+        .tencent-logo { background:var(--fun-lime); border-color:var(--fun-lime); }
+        .tencent-info h3 { color:var(--fun-ink); }
+        .tencent-info p { color:#969990; }
+        .tencent-overview { color:#C2C4BE; border-color:rgba(245,241,231,.2); }
+        .work-hero-summary { background:#161713; border-color:rgba(245,241,231,.22); box-shadow:none; }
+        .work-hero-stat { border-color:rgba(245,241,231,.14); }
+        .work-hero-stat-num,
+        .work-hero-stat-num .highlight { color:var(--fun-lime); }
+        .work-hero-stat-label { color:#8E9189; }
+        .work-cards-grid .tencent-card .card-dim-name,
+        .work-cards-grid .tencent-card .card-dim-sub,
+        .work-cards-grid .tencent-card .card-item { color:var(--fun-ink) !important; }
+        .work-cards-grid .tencent-card .card-dim-sub,
+        .work-cards-grid .tencent-card .card-item { opacity:.72; }
+        .card-dim-icon { background:var(--fun-lime) !important; border-color:var(--fun-lime); box-shadow:none; }
+        .card-metric,
+        .tencent-card:nth-child(2) .card-metric { color:var(--fun-lime); background:#090A08; border-color:rgba(245,241,231,.16); }
+
+        /* Projects and contact */
+        .xiaohongshu-card::before,
+        .xiaohongshu-card::after { display:none; }
+        .xhs-stat { color:var(--fun-ink); background:#11120F; border-color:rgba(245,241,231,.2); }
+        .xhs-stat-num { color:var(--fun-lime); }
+        .xhs-tag { color:var(--dark); background:var(--fun-lime); border-color:var(--fun-lime); }
+        .xhs-link { color:#fff; background:var(--fun-blue); border-color:var(--fun-blue); box-shadow:none; }
+        .proj-card-badge { color:var(--dark); background:var(--fun-lime); }
+        .qr-wrap { border-color:rgba(245,241,231,.25); box-shadow:5px 5px 0 var(--fun-blue); }
+        footer { color:#777A72; background:#090A08; border-top:1px solid rgba(245,241,231,.18); }
+        footer span { color:var(--fun-lime); }
+        .vibe-switcher,
+        body.dark-mode .vibe-switcher {
+            color:var(--fun-ink);
+            background:rgba(17,18,15,.94);
+            border-color:rgba(245,241,231,.28);
+            box-shadow:4px 4px 0 var(--fun-blue);
+        }
+        .back-to-top { color:var(--dark); background:var(--fun-lime); border-color:var(--fun-lime); box-shadow:none; }
+
+        /* The moving-image exhibition is the homepage's full second screen. */
+        .exhibition-embed-section {
+            width:100%;
+            height:100svh;
+            min-height:100svh;
+            padding:72px 0 0 !important;
+            overflow:hidden;
+            background:#11120F !important;
+            background-image:none !important;
+            border-bottom:1px solid rgba(245,241,231,.16);
+        }
+        .exhibition-embed {
+            display:block;
+            width:100%;
+            height:100%;
+            border:0;
+            background:#11120F;
+        }
+
+        @media (max-width:720px) {
+            body::before { display:none; }
+            #hero { min-height:1060px; }
+            .hero-bg { box-shadow:7px 7px 0 var(--fun-blue); }
+            .hero-punchline { color:var(--fun-ink); }
+            section:not(#hero) { padding-block:74px; }
+            .about-card:nth-child(n),
+            .edu-block,
+            .intern-block,
+            .xiaohongshu-card,
+            .proj-card,
+            .contact-info-card,
+            .wechat-card { border-radius:15px; }
+            .exhibition-embed-section {
+                height:100svh;
+                min-height:100svh;
+                padding:62px 0 0 !important;
+            }
+        }
+        @media (prefers-reduced-motion:reduce) {
+            *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+        }
     </style>
 </head>
 <body>
@@ -815,26 +1612,18 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 <div class="easter-egg-badge" id="eggBadge"></div>
-<div class="mini-music" id="miniMusic" title="点击播放音乐">
-    <div class="mini-music-icon">♪</div>
-    <div class="mini-music-text">
-        <div class="now">NOW PLAYING</div>
-        <div>Ginger's Chill Vibes</div>
-    </div>
-</div>
-
-
 <!-- NAVBAR -->
 <nav id="navbar">
     <div class="nav-inner">
-        <a href="#hero" class="nav-brand"><span class="brand-dot"></span>Ginger Li</a>
+        <a href="#hero" class="nav-brand"><span class="brand-dot"></span>GINGER LI / ARCHIVE</a>
         <ul class="nav-links">
             <li><a href="#hero" class="active">首页</a></li>
             <li><a href="#about">关于我</a></li>
-            <li><a href="#work">工作经历</a></li>
-            <li><a href="#internship">教育/实习经历</a></li>
-            <li><a href="#projects">项目经历</a></li>
-            <li><a href="#contact">联系方式</a></li>
+            <li><a href="#work">增长实验</a></li>
+            <li><a href="#internship">经历地图</a></li>
+            <li><a href="#projects">我的副本</a></li>
+            <li><a href="#moving-image">影像展览</a></li>
+            <li><a href="#contact">来找我玩</a></li>
         </ul>
     </div>
 </nav>
@@ -856,14 +1645,16 @@
     <div class="hero-overlay"></div>
     <div class="hero-content align-right"  id="heroContent">
         <div class="hero-card">
-            <div class="hero-hi"><span class="wave">👋</span> Hi，我是 Ginger Li</div>
-            <div class="hero-name"><span class="grad">李君杰</span></div>
-            <div class="hero-title"><span>华南理工大学</span> · 金融学（金融科技）</div>
+            <div class="hero-hi"><span class="wave">●</span> SHENZHEN · ONLINE</div>
+            <div class="hero-name">
+                <span class="hero-punchline"><span class="grad">Ginger Li</span></span>
+            </div>
+            <div class="hero-title"><span>腾讯产品运营</span> × 内容创作者 × AI 效率玩家</div>
             <div class="hero-badges">
-                <span class="hero-badge">ENFJ</span>
-                <span class="hero-badge">SBTI 尤物</span>
-                <span class="hero-badge">健身半年0成果者</span>
-                <span class="hero-badge">8国数字流氓</span>
+                <span class="hero-badge">ENFJ 超级 E 人</span>
+                <span class="hero-badge">商业化增长脑</span>
+                <span class="hero-badge">健身半年 0 成果</span>
+                <span class="hero-badge">Vibe Coding</span>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
@@ -879,10 +1670,19 @@
                     <div class="hero-stat-label">内容浏览量</div>
                 </div>
             </div>
-            <div class="hero-desc">欢迎来到我的个人网站！本人是一个超级大 E 人，非常乐于认识各行各业的新朋友，我什么领域都能唠上两句，欢迎通过网站最下面的联系方式找我聊天～</div>
+            <div class="persona-switch" aria-label="切换认识 Ginger 的视角">
+                <button class="persona-chip active" data-persona="business">ENFJ</button>
+                <button class="persona-chip" data-persona="creator">创作者</button>
+                <button class="persona-chip" data-persona="human">野生人格</button>
+            </div>
+            <div class="hero-actions">
+                <a class="hero-cta hero-cta-primary" href="#work">看我腾讯工作经历 <span>↘</span></a>
+                <a class="hero-cta hero-cta-ghost" href="#moving-image">进入影像展览 ↓</a>
+                <a class="hero-cta hero-cta-ghost" href="#internship">看我之前的无聊的简历 ↘</a>
+            </div>
         </div>
     </div>
-    <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <div class="hero-scroll" onclick="document.getElementById('moving-image').scrollIntoView({behavior:'smooth'})">
         向下探索
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:block;margin:4px auto 0">
             <path d="M6 9l6 6 6-6"/>
@@ -890,11 +1690,58 @@
     </div>
 </section>
 
+<!-- MOVING IMAGE · HOMEPAGE SCREEN 02 -->
+<section id="moving-image" class="exhibition-embed-section" aria-label="Ginger Li 的影像展览">
+    <iframe
+        id="exhibitionFrame"
+        class="exhibition-embed"
+        src="exhibition.html?embedded=1&amp;v=20260805-2"
+        title="Ginger Li 的影像展览"
+        loading="eager"
+        allow="autoplay; fullscreen; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+</section>
+<script>
+    (() => {
+        const exhibitionFrame = document.getElementById('exhibitionFrame');
+        let pendingWheelDelta = 0;
+        let wheelFrame = 0;
+        window.addEventListener('message', event => {
+            if (
+                event.source !== exhibitionFrame.contentWindow ||
+                !event.data ||
+                event.data.type !== 'ginger-exhibition-vertical-wheel'
+            ) return;
+
+            const rawDelta = Number(event.data.deltaY);
+            if (!Number.isFinite(rawDelta)) return;
+            pendingWheelDelta += rawDelta;
+            if (wheelFrame) return;
+
+            wheelFrame = window.requestAnimationFrame(() => {
+                const delta = pendingWheelDelta;
+                pendingWheelDelta = 0;
+                wheelFrame = 0;
+                window.scrollBy({ top: delta, left: 0, behavior: 'instant' });
+            });
+        });
+    })();
+</script>
+
+<div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+        <span>PRODUCT OPERATOR</span><b>✦</b><span>CONTENT CREATOR</span><b>✦</b><span>AI EXPLORER</span><b>✦</b><span>SUPER CONNECTOR</span><b>✦</b>
+        <span>PRODUCT OPERATOR</span><b>✦</b><span>CONTENT CREATOR</span><b>✦</b><span>AI EXPLORER</span><b>✦</b><span>SUPER CONNECTOR</span><b>✦</b>
+    </div>
+</div>
+
 <!-- ABOUT -->
 <section id="about">
     <div class="container">
-        <div class="section-label">ABOUT ME</div>
-        <h2 class="section-title">关于我</h2>
+        <div class="section-label">PLAYER PROFILE · 01</div>
+        <h2 class="section-title">四张卡，拼出一个不太标准的我。</h2>
+        <p class="section-intro">点一下卡片，看看简历背后的真实版本。</p>
         <div class="about-grid">
             <div class="about-card fade-up">
                 <div class="about-icon" style="background:#EFF6FF">📊</div>
@@ -931,8 +1778,9 @@
 <!-- TENCENT WORK -->
 <section id="work">
     <div class="container">
-        <div class="section-label">WORK EXPERIENCE</div>
-        <h2 class="section-title">工作经历</h2>
+        <div class="section-label">GROWTH LAB · 02</div>
+        <h2 class="section-title">我不是在“做运营”，<br>我在找增长杠杆。</h2>
+        <p class="section-intro">最近一份实验记录：搜狗输入法商业化增收。</p>
 
             <!-- 1. 腾讯 Header -->
             <div class="tencent-header fade-up">
@@ -1046,8 +1894,9 @@
 <!-- EDUCATION & INTERNSHIP -->
 <section id="internship">
     <div class="container">
-        <div class="section-label">EDUCATION &amp; INTERNSHIP</div>
-        <h2 class="section-title">教育 / 实习经历</h2>
+        <div class="section-label">MY MAP · 03</div>
+        <h2 class="section-title">一路打怪，收集不同视角。</h2>
+        <p class="section-intro">从金融科技到产品、运营、AI，每段经历都给了我一件新装备。</p>
 
         <!-- Education -->
         <div class="edu-block fade-up">
@@ -1205,8 +2054,9 @@
 <!-- PROJECTS -->
 <section id="projects">
     <div class="container">
-        <div class="section-label">PROJECTS</div>
-        <h2 class="section-title">项目经历</h2>
+        <div class="section-label">SIDE QUESTS · 04</div>
+        <h2 class="section-title">主线之外，我还开了这些副本。</h2>
+        <p class="section-intro">内容、商业化、达人营销和 AI 自动化——好奇心是我的隐藏主线。</p>
         <div class="projects-layout">
             <div class="xiaohongshu-card fade-up">
                 <div class="xhs-header">
@@ -1262,8 +2112,9 @@
 <!-- CONTACT -->
 <section id="contact">
     <div class="container">
-        <div class="section-label">LET'S CONNECT</div>
-        <h2 class="section-title">联系我</h2>
+        <div class="section-label">OPEN FOR CONNECTION · 05</div>
+        <h2 class="section-title">有趣的人，应该互相认识。</h2>
+        <p class="section-intro">聊产品、内容、AI，或者单纯交换一个好点子。</p>
         <div class="contact-grid">
             <div class="contact-info-card fade-up">
                 <h3>联系方式</h3>
@@ -1284,7 +2135,7 @@
                     <div>
                         <div class="contact-item-label">小红书</div>
                         <div class="contact-item-value">
-                            <a href="https://www.xiaohongshu.com/user/profile/624c0fa0000000001000ffa2" target="_blank" style="color:var(--primary);text-decoration:none">@李君杰的小红书 →</a>
+                            <a href="https://www.xiaohongshu.com/user/profile/624c0fa0000000001000ffa2" target="_blank" style="color:var(--primary);text-decoration:none">@Ginger Li 的小红书 →</a>
                         </div>
                     </div>
                 </div>
@@ -1303,7 +2154,7 @@
 
 <!-- FOOTER -->
 <footer>
-    <p>© 2025 <span>Ginger Li</span> · All rights reserved.</p>
+    <p>© 2026 <span>Ginger Li</span> · Built with curiosity, caffeine &amp; a little AI.</p>
 </footer>
 
 <script>
@@ -1337,7 +2188,7 @@ document.querySelectorAll('.fade-up').forEach(el => {
 
 // ===== Nav active link on scroll =====
 (function(){
-    const links = document.querySelectorAll('.nav-links a');
+    const links = document.querySelectorAll('.nav-links a[href^="#"]');
     const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
     function onScroll(){
         const mid = window.scrollY + window.innerHeight * 0.3;
@@ -1452,20 +2303,24 @@ document.querySelectorAll('.fade-up').forEach(el => {
     }, {passive:true});
 })();
 
-// ===== FUN: About cards double-click flip =====
+// ===== FUN: About cards click / keyboard flip =====
 (function(){
     document.querySelectorAll('.about-card').forEach(card=>{
         card.style.transition = 'transform 0.7s cubic-bezier(0.55,0.06,0.22,1.04), box-shadow 0.3s';
-        card.addEventListener('dblclick', ()=>{
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', '点击翻面查看隐藏介绍');
+        const flip = ()=>{
             card.classList.toggle('flipped');
+            card.setAttribute('aria-pressed', card.classList.contains('flipped'));
+        };
+        card.addEventListener('click', flip);
+        card.addEventListener('keydown', e=>{
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                flip();
+            }
         });
-        // Hint on first hover
-        let hinted = false;
-        card.addEventListener('mouseenter', ()=>{
-            if (hinted) return;
-            hinted = true;
-            card.title = '双击试试？👀';
-        }, {once:true});
     });
 })();
 
@@ -1549,7 +2404,7 @@ document.querySelectorAll('.fade-up').forEach(el => {
 
 // ===== FUN: Typewriter for hero-desc =====
 (function(){
-    const el = document.querySelector('.hero-desc');
+    const el = document.querySelector('.legacy-typewriter');
     if (!el) return;
     const original = el.textContent;
     el.textContent = '';
@@ -1594,6 +2449,61 @@ document.querySelectorAll('.fade-up').forEach(el => {
     if (!btn) return;
     btn.addEventListener('click', ()=>{
         document.body.classList.toggle('dark-mode');
+    });
+})();
+
+// ===== PLAY: switch between three sides of Ginger =====
+(function(){
+    const chips = document.querySelectorAll('.persona-chip');
+    if (!chips.length) return;
+    chips.forEach(chip=>chip.addEventListener('click', ()=>{
+        chips.forEach(item=>item.classList.toggle('active', item === chip));
+    }));
+})();
+
+// ===== PLAY: random facts that reveal personality, not decoration =====
+(function(){
+    const button = document.getElementById('randomFact');
+    const toast = document.getElementById('factToast');
+    if (!button || !toast) return;
+    const facts = [
+        '📈 最舒服的时刻：发现一个被忽略的数据异常，然后把它变成增长机会。',
+        '💬 隐藏技能：和几乎任何行业的人都能迅速找到可以聊半小时的话题。',
+        '🤖 个人原则：能自动化的事情，尽量不要重复手动做第二遍。',
+        '🏋️ 坚持健身半年，成果约等于 0——但出勤率值得肯定。',
+        '📕 300+ 篇内容教会我：好标题不是夸张，是更快说清楚价值。',
+        '🧩 比起一个漂亮答案，我更喜欢一个能被验证的假设。'
+    ];
+    let last = -1;
+    let timer;
+    button.addEventListener('click', ()=>{
+        let next = Math.floor(Math.random() * facts.length);
+        if (next === last) next = (next + 1) % facts.length;
+        last = next;
+        toast.textContent = facts[next];
+        toast.classList.add('show');
+        window.clearTimeout(timer);
+        timer = window.setTimeout(()=>toast.classList.remove('show'), 3600);
+    });
+})();
+
+// ===== PLAY: a tiny honest status switcher =====
+(function(){
+    const switcher = document.getElementById('vibeSwitcher');
+    const text = document.getElementById('vibeText');
+    if (!switcher || !text) return;
+    const statuses = ['正在把复杂事做简单', '正在研究下一个增长杠杆', '今天也在努力健身（大概）', '正在和 AI 合谋偷懒', '欢迎来找我交换好点子'];
+    let index = 0;
+    const change = ()=>{
+        index = (index + 1) % statuses.length;
+        text.textContent = statuses[index];
+    };
+    switcher.addEventListener('click', change);
+    switcher.addEventListener('keydown', e=>{
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            change();
+        }
     });
 })();
 
