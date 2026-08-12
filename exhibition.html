@@ -176,6 +176,71 @@
         .media-frame::before { left: 14px; top: 14px; border-left: 2px solid var(--lime); border-top: 2px solid var(--lime); }
         .media-frame::after { right: 14px; bottom: 14px; border-right: 2px solid var(--lime); border-bottom: 2px solid var(--lime); }
         video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+        .video-launcher {
+            position: absolute;
+            inset: 0;
+            z-index: 6;
+            display: grid;
+            place-items: center;
+            width: 100%;
+            padding: 0;
+            color: var(--paper);
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            transition: opacity .24s ease, visibility .24s ease;
+        }
+        .video-launcher::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .32));
+        }
+        .video-launcher[hidden] { display: none; }
+        .video-launcher-inner {
+            position: relative;
+            display: grid;
+            justify-items: center;
+            gap: 12px;
+        }
+        .video-launcher-disc {
+            width: clamp(70px, 8vw, 112px);
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--ink);
+            background: var(--lime);
+            border: 3px solid var(--ink);
+            box-shadow: 7px 7px 0 var(--blue);
+            font-size: clamp(27px, 3vw, 42px);
+            line-height: 1;
+            transition: transform .2s ease;
+        }
+        .video-launcher:hover .video-launcher-disc { transform: scale(1.06) rotate(4deg); }
+        .video-launcher-label {
+            padding: 7px 12px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: .12em;
+            background: rgba(9, 10, 8, .8);
+            border: 1px solid rgba(245, 241, 231, .28);
+        }
+        .video-launcher.is-loading .video-launcher-disc {
+            color: transparent;
+            box-shadow: none;
+            animation: video-loading .75s linear infinite;
+        }
+        .video-launcher.is-loading .video-launcher-disc::after {
+            content: "";
+            width: 24%;
+            height: 24%;
+            border: 4px solid var(--ink);
+            border-top-color: transparent;
+            border-radius: 50%;
+        }
+        .video-launcher.is-error .video-launcher-disc { background: var(--coral); box-shadow: 7px 7px 0 var(--blue); }
+        @keyframes video-loading { to { transform: rotate(360deg); } }
 
         .xhs-display {
             position: absolute;
@@ -798,7 +863,7 @@
                 <div class="track" id="track">
                     <article class="slide" aria-roledescription="slide" aria-label="第 1 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/study-abroad-dream.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e8d2adf60edf114f0370019976fa0cf5_258.mp4" aria-label="播放：你一定会实现出国留学的梦想的">
+                            <video controls playsinline preload="none" poster="assets/exhibition/study-abroad-dream.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e8d2adf60edf114f0370019976fa0cf5_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/68d2adf70000000014009a3c?xsec_token=AB1napOYpSDTqQFma1yKHNrQI5KLxzpNcGMa-8qK8HL5g=&amp;xsec_source=pc_user" aria-label="播放：你一定会实现出国留学的梦想的">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -839,7 +904,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 2 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-cheap.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v1e00fgi0000d8dac67og65km80gthe0&amp;ratio=720p&amp;line=0" aria-label="播放：来新西兰旅行前没想到会这么便宜">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-cheap.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v1e00fgi0000d8dac67og65km80gthe0&amp;ratio=720p&amp;line=0" data-fallback-url="https://v.douyin.com/e_ockvdUL5M/" aria-label="播放：来新西兰旅行前没想到会这么便宜">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -875,7 +940,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 3 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-once.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v2800fgi0000d82tjgfog65urev9gq4g&amp;ratio=720p&amp;line=0" aria-label="播放：人一辈子一定要来一次新西兰">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-once.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v2800fgi0000d82tjgfog65urev9gq4g&amp;ratio=720p&amp;line=0" data-fallback-url="https://v.douyin.com/Fg_meBVZtUk/" aria-label="播放：人一辈子一定要来一次新西兰">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -911,7 +976,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 4 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/taylor-swift.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v0300fg10000crqivknog65pquv9bdeg&amp;ratio=720p&amp;line=0" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/taylor-swift.webp" data-src="assets/exhibition/videos/taylor-swift-web.mp4" data-fallback-url="https://v.douyin.com/q3uUQ6sk7eg/" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -950,7 +1015,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 5 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/japan-15-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e7776c452ae1ae01037001942a82e0e9_258.mp4" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
+                            <video controls playsinline preload="none" poster="assets/exhibition/japan-15-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e7776c452ae1ae01037001942a82e0e9_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/67776c46000000000b017a63" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -987,7 +1052,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 6 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e7b2e9674a10404f03700195133aaf3f_258.mp4" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
+                            <video controls playsinline preload="none" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e7b2e9674a10404f03700195133aaf3f_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1026,7 +1091,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 7 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/internship-offers.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e53cec71ab7ecb01037001943ad08c97_258.mp4" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
+                            <video controls playsinline preload="none" poster="assets/exhibition/internship-offers.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e53cec71ab7ecb01037001943ad08c97_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/653cec72000000002202f282" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1131,16 +1196,79 @@
             });
             total.textContent = String(slides.length).padStart(2, '0');
 
+            function ensureVideoLauncher(video) {
+                const frame = video.closest('.media-frame');
+                if (!frame || frame.querySelector('.video-launcher')) return;
+
+                const launcher = document.createElement('button');
+                launcher.type = 'button';
+                launcher.className = 'video-launcher';
+                launcher.setAttribute('aria-label', video.getAttribute('aria-label') || '播放视频');
+                launcher.innerHTML = '<span class="video-launcher-inner"><span class="video-launcher-disc" aria-hidden="true">▶</span><span class="video-launcher-label">点击播放</span></span>';
+                frame.appendChild(launcher);
+
+                const label = launcher.querySelector('.video-launcher-label');
+                const resetError = () => {
+                    launcher.classList.remove('is-error');
+                    label.textContent = '点击播放';
+                };
+                const markRetry = () => {
+                    const failedAttempts = Number(launcher.dataset.failedAttempts || 0) + 1;
+                    launcher.dataset.failedAttempts = String(failedAttempts);
+                    return failedAttempts;
+                };
+                const revealPlayer = () => {
+                    launcher.classList.remove('is-loading', 'is-error');
+                    launcher.hidden = true;
+                };
+                const showError = () => {
+                    launcher.classList.remove('is-loading');
+                    launcher.classList.add('is-error');
+                    label.textContent = Number(launcher.dataset.failedAttempts || 0) > 1
+                        ? '仍无法播放 · 打开原作'
+                        : '加载失败 · 点击重试';
+                    launcher.hidden = false;
+                };
+
+                launcher.addEventListener('click', async () => {
+                    if (Number(launcher.dataset.failedAttempts || 0) > 1 && video.dataset.fallbackUrl) {
+                        window.open(video.dataset.fallbackUrl, '_blank', 'noopener,noreferrer');
+                        return;
+                    }
+                    resetError();
+                    launcher.classList.add('is-loading');
+                    label.textContent = '正在加载';
+                    if (!video.src) {
+                        video.src = video.dataset.src;
+                        video.load();
+                    }
+                    try {
+                        await video.play();
+                        revealPlayer();
+                    } catch (error) {
+                        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) revealPlayer();
+                        else {
+                            markRetry();
+                            showError();
+                        }
+                    }
+                });
+                video.addEventListener('playing', revealPlayer);
+                video.addEventListener('canplay', () => {
+                    if (launcher.classList.contains('is-loading')) revealPlayer();
+                });
+                video.addEventListener('error', () => {
+                    markRetry();
+                    showError();
+                });
+            }
+
             function syncMedia() {
                 slides.forEach((slide, i) => {
                     const video = slide.querySelector('video');
                     if (!video) return;
-                    if (i === index) {
-                        if (!video.src) {
-                            video.src = video.dataset.src;
-                            video.load();
-                        }
-                    } else {
+                    ensureVideoLauncher(video);
+                    if (i !== index) {
                         video.pause();
                     }
                 });
