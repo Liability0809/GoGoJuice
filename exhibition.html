@@ -680,17 +680,142 @@
             .comments-list { max-height: 280px; }
         }
         @media (max-width: 620px) {
-            .topbar { height: 60px; }
-            .intro { padding: 22px 18px; }
-            h1 { font-size: clamp(42px, 14vw, 60px); }
-            .slide { padding: 18px; }
-            .media-frame { aspect-ratio: 16 / 9; border-radius: 15px; }
-            .work-title { font-size: clamp(25px, 8vw, 36px); }
-            .work-copy { max-height: 8.1em; }
-            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .stat { min-height: 84px; }
-            .carousel-controls { gap: 10px; }
-            .comments-list { max-height: 250px; }
+            html,
+            body { height: auto; overflow-x: hidden; }
+            body { min-width: 0; }
+            main {
+                width: 100%;
+                min-height: 100svh;
+                padding: 0;
+            }
+            .exhibition-shell {
+                width: 100%;
+                min-height: 100svh;
+                overflow: hidden;
+            }
+            .intro {
+                min-height: 0;
+                margin: 0;
+                padding: 17px 16px 14px;
+                grid-template-columns: 1fr;
+                gap: 8px;
+                border-bottom: 1px solid rgba(245, 241, 231, .16);
+            }
+            .eyebrow { display: none; }
+            h1 {
+                font-size: clamp(38px, 12.5vw, 54px);
+                line-height: .88;
+                white-space: nowrap;
+            }
+            .intro-note {
+                max-width: none;
+                font-size: 10px;
+                line-height: 1.4;
+            }
+            .viewport { overflow: hidden; border: 0; }
+            .track { align-items: flex-start; }
+            .slide {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 12px 12px 0;
+            }
+            .media-frame {
+                order: 1;
+                width: 100%;
+                min-height: 0;
+                aspect-ratio: 16 / 9;
+                border-radius: 13px;
+            }
+            .video-launcher-disc {
+                width: 66px;
+                border-width: 2px;
+                box-shadow: 4px 4px 0 var(--blue);
+                font-size: 25px;
+            }
+            .video-launcher-inner { gap: 8px; }
+            .video-launcher-label { padding: 5px 9px; font-size: 9px; }
+            .art-info { display: contents; }
+            .art-info > div {
+                order: 3;
+                min-width: 0;
+                padding: 15px 2px 18px;
+                border: 0;
+            }
+            .meta {
+                order: 2;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                gap: 7px 10px;
+                width: 100%;
+                padding: 13px 2px 0;
+                border: 0;
+            }
+            .meta-label { display: none; }
+            .date {
+                grid-column: 1 / -1;
+                margin: 0;
+                font-size: 25px;
+                line-height: 1;
+            }
+            .reach-stat {
+                grid-column: 1 / -1;
+                min-height: 42px;
+                margin: 0;
+                padding: 8px 10px;
+            }
+            .reach-stat span,
+            .reach-stat b { font-size: clamp(18px, 5.3vw, 23px); }
+            .stats {
+                grid-column: 1 / -1;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 7px;
+            }
+            .stat {
+                min-height: 46px;
+                padding: 8px 9px;
+                white-space: nowrap;
+            }
+            .stat b,
+            .stat span { font-size: clamp(13px, 3.8vw, 16px); }
+            .source-link {
+                grid-column: 1 / -1;
+                margin: 1px 0 0;
+                font-size: 9px;
+            }
+            .work-label { margin-bottom: 6px; font-size: 8px; }
+            .work-title {
+                font-size: clamp(25px, 7.3vw, 34px);
+                line-height: 1.04;
+            }
+            .work-copy {
+                max-height: 7.2em;
+                margin-top: 9px;
+                padding-right: 8px;
+                overflow-y: auto;
+                font-size: 11px;
+                line-height: 1.58;
+            }
+            .carousel-controls {
+                position: sticky;
+                bottom: 0;
+                z-index: 8;
+                min-height: 56px;
+                height: 56px;
+                grid-template-columns: 1fr auto 1fr;
+                gap: 8px;
+                padding: 0 10px;
+                background: rgba(9, 10, 8, .96);
+                backdrop-filter: blur(12px);
+            }
+            .arrow { width: 38px; height: 38px; font-size: 19px; }
+            .progress { gap: 8px; }
+            .counter { min-width: 45px; font-size: 9px; }
+            .counter b { font-size: 16px; }
+            .dots { gap: 4px; }
+            .dot { width: 11px; height: 4px; }
+            .dot.active { width: 22px; }
+            .footnote { display: none; }
         }
 
         /* ===== ONE-SCREEN / TRACKPAD SNAP ===== */
@@ -888,6 +1013,16 @@
             min-height: 100svh;
         }
         html.is-embedded .exhibition-shell { min-height: 100svh; }
+        @media (max-width: 620px) {
+            html.is-embedded main {
+                height: auto;
+                min-height: 100svh;
+            }
+            html.is-embedded .exhibition-shell {
+                min-height: 100svh;
+                overflow: visible;
+            }
+        }
     </style>
 </head>
 <body>
@@ -911,7 +1046,7 @@
                 <div class="track" id="track">
                     <article class="slide" aria-roledescription="slide" aria-label="第 1 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/study-abroad-dream.jpg" data-src="assets/exhibition/videos/study-abroad-dream.mp4" aria-label="播放：你一定会实现出国留学的梦想的">
+                            <video controls playsinline preload="none" poster="assets/exhibition/study-abroad-dream.jpg" data-src="assets/exhibition/videos/study-abroad-dream.mp4" data-mobile-src="assets/exhibition/videos/mobile/study-abroad-dream.mp4" aria-label="播放：你一定会实现出国留学的梦想的">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -953,7 +1088,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 2 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/new-zealand-cheap.webp" data-src="assets/exhibition/videos/new-zealand-cheap-1080p.mp4" aria-label="播放：来新西兰旅行前没想到会这么便宜">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-cheap.webp" data-src="assets/exhibition/videos/new-zealand-cheap-1080p.mp4" data-mobile-src="assets/exhibition/videos/mobile/new-zealand-cheap.mp4" aria-label="播放：来新西兰旅行前没想到会这么便宜">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -990,7 +1125,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 3 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/new-zealand-once.webp" data-src="assets/exhibition/videos/new-zealand-once-1080p.mp4" aria-label="播放：人一辈子一定要来一次新西兰">
+                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-once.webp" data-src="assets/exhibition/videos/new-zealand-once-1080p.mp4" data-mobile-src="assets/exhibition/videos/mobile/new-zealand-once.mp4" aria-label="播放：人一辈子一定要来一次新西兰">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1027,7 +1162,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 4 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/taylor-swift.webp" data-src="assets/exhibition/videos/taylor-swift-1080p.mp4" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
+                            <video controls playsinline preload="none" poster="assets/exhibition/taylor-swift.webp" data-src="assets/exhibition/videos/taylor-swift-1080p.mp4" data-mobile-src="assets/exhibition/videos/mobile/taylor-swift.mp4" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1067,7 +1202,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 5 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/japan-15-days.jpg" data-src="assets/exhibition/videos/japan-15-days.mp4" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
+                            <video controls playsinline preload="none" poster="assets/exhibition/japan-15-days.jpg" data-src="assets/exhibition/videos/japan-15-days.mp4" data-mobile-src="assets/exhibition/videos/mobile/japan-15-days.mp4" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1105,7 +1240,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 6 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="assets/exhibition/videos/hokkaido-8-days.mp4" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
+                            <video controls playsinline preload="none" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="assets/exhibition/videos/hokkaido-8-days.mp4" data-mobile-src="assets/exhibition/videos/mobile/hokkaido-8-days.mp4" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1145,7 +1280,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 7 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/internship-offers.jpg" data-src="assets/exhibition/videos/internship-offers.mp4" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
+                            <video controls playsinline preload="none" poster="assets/exhibition/internship-offers.jpg" data-src="assets/exhibition/videos/internship-offers.mp4" data-mobile-src="assets/exhibition/videos/mobile/internship-offers.mp4" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1283,7 +1418,7 @@
                     launcher.classList.add('is-loading');
                     label.textContent = '正在加载';
                     if (!video.src) {
-                        video.src = video.dataset.src;
+                        video.src = getVideoSource(video);
                         video.load();
                     }
                     try {
@@ -1303,6 +1438,22 @@
                 video.addEventListener('error', () => {
                     showError();
                 });
+            }
+
+            const mobileVideoQuery = window.matchMedia('(max-width: 620px)');
+
+            function getVideoSource(video) {
+                return mobileVideoQuery.matches && video.dataset.mobileSrc
+                    ? video.dataset.mobileSrc
+                    : video.dataset.src;
+            }
+
+            function warmActiveVideo() {
+                const video = slides[index] && slides[index].querySelector('video');
+                if (!video || video.src) return;
+                video.src = getVideoSource(video);
+                video.preload = 'metadata';
+                video.load();
             }
 
             function syncMedia() {
@@ -1333,6 +1484,7 @@
                 prev.disabled = index === 0;
                 next.disabled = index === slides.length - 1;
                 syncMedia();
+                window.setTimeout(warmActiveVideo, 120);
             }
 
             function goTo(nextIndex) {
