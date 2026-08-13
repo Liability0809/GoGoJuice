@@ -51,13 +51,17 @@
             content: "";
             position: fixed;
             inset: 0;
-            z-index: 20;
+            z-index: 0;
             opacity: .11;
             pointer-events: none;
             background-image: radial-gradient(rgba(245, 241, 231, .42) .55px, transparent .55px);
             background-size: 5px 5px;
-            mix-blend-mode: screen;
+            mix-blend-mode: normal;
         }
+        body > .topbar, body > main, body > noscript, body > script { position: relative; z-index: 1; }
+        .media-frame { isolation: isolate; background: #000; }
+        .media-frame video { position: relative; z-index: 2; }
+        .media-frame .video-launcher { position: absolute; z-index: 6; }
         ::selection { color: var(--ink); background: var(--lime); }
         a, button { font: inherit; }
         a:focus-visible, button:focus-visible, video:focus-visible {
@@ -307,11 +311,32 @@
         }
         .meta { border-left: 1px solid var(--line); padding-left: clamp(20px, 2.2vw, 34px); }
         .meta-label { margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .17em; }
-        .date { display: block; margin-bottom: 20px; color: var(--lime); font-size: clamp(24px, 2.5vw, 40px); font-weight: 950; letter-spacing: -.04em; }
+        .date { display: block; margin-bottom: 10px; color: var(--lime); font-size: clamp(24px, 2.5vw, 40px); font-weight: 950; letter-spacing: -.04em; }
+        .reach-stat {
+            min-height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0;
+            margin-bottom: 8px;
+            padding: 9px 11px;
+            border: 1px solid var(--line);
+            background: linear-gradient(100deg, rgba(196, 255, 0, .08), rgba(43, 75, 255, .08));
+        }
+        .reach-stat span,
+        .reach-stat b { font-size: clamp(20px, 1.8vw, 28px); line-height: 1; }
+        .reach-stat span { color: var(--paper); font-weight: 850; }
+        .reach-stat span::after { content: "："; }
+        .reach-stat b { color: var(--lime); font-weight: 950; letter-spacing: -.03em; }
+        .reach-stat b::after { content: "；"; }
         .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-        .stat { padding: 10px 11px; border: 1px solid var(--line); }
-        .stat b { display: block; font-size: clamp(15px, 1.25vw, 20px); letter-spacing: -.02em; }
-        .stat span { color: var(--muted); font-size: 9px; }
+        .stat { min-width: 0; display: flex; align-items: center; padding: 10px 11px; border: 1px solid var(--line); white-space: nowrap; }
+        .stat b,
+        .stat span { font-size: clamp(15px, 1.25vw, 20px); line-height: 1; }
+        .stat b { order: 2; font-weight: 950; letter-spacing: -.02em; }
+        .stat b::after { content: "；"; }
+        .stat span { order: 1; color: var(--paper); font-weight: 850; }
+        .stat span::after { content: "："; }
         .source-link {
             display: inline-flex;
             align-items: center;
@@ -519,10 +544,19 @@
         }
         .meta-label { margin-bottom: 12px; font-size: 10px; }
         .date {
-            margin-bottom: clamp(24px, 3vw, 42px);
+            margin-bottom: 14px;
             font-size: clamp(34px, 3.4vw, 50px);
             line-height: .96;
         }
+        .reach-stat {
+            min-height: 70px;
+            margin-bottom: 9px;
+            padding: 13px 14px;
+            border-color: rgba(245, 241, 231, .18);
+            background: linear-gradient(100deg, rgba(196, 255, 0, .085), rgba(43, 75, 255, .095));
+        }
+        .reach-stat span,
+        .reach-stat b { font-size: clamp(25px, 2.2vw, 34px); }
         .stats { gap: 9px; }
         .stat {
             min-height: 92px;
@@ -530,8 +564,9 @@
             border-color: rgba(245, 241, 231, .18);
             background: rgba(255, 255, 255, .025);
         }
-        .stat b { font-size: clamp(18px, 1.55vw, 24px); }
-        .stat span { display: block; margin-top: 9px; font-size: 9px; }
+        .stat b,
+        .stat span { font-size: clamp(16px, 1.35vw, 22px); }
+        .stat span { margin-top: 0; }
         .source-link { margin-top: 22px; font-size: 10px; }
         .comments-panel {
             margin-top: 24px;
@@ -753,16 +788,24 @@
                 font-size: 8px;
             }
             .date {
-                margin-bottom: clamp(13px, 1.8vh, 22px);
+                margin-bottom: clamp(7px, 1vh, 11px);
                 font-size: clamp(28px, 3vw, 46px);
             }
+            .reach-stat {
+                min-height: clamp(45px, 6.3vh, 58px);
+                margin-bottom: 7px;
+                padding: clamp(7px, 1vh, 10px) 12px;
+            }
+            .reach-stat span,
+            .reach-stat b { font-size: clamp(21px, 1.8vw, 28px); }
             .stats { gap: 7px; }
             .stat {
                 min-height: clamp(58px, 8.2vh, 78px);
                 padding: clamp(9px, 1.3vh, 13px) 12px;
             }
-            .stat b { font-size: clamp(17px, 1.35vw, 22px); }
-            .stat span { margin-top: 5px; font-size: 8px; }
+            .stat b,
+            .stat span { font-size: clamp(15px, 1.22vw, 20px); }
+            .stat span { margin-top: 0; }
             .source-link { margin-top: 13px; font-size: 9px; }
             .art-info > div {
                 min-height: 0;
@@ -822,8 +865,13 @@
             .intro-note { font-size: 10px; }
             .carousel { grid-template-rows: minmax(0, 1fr) 46px; }
             .slide { padding-top: 10px; padding-bottom: 8px; }
-            .date { margin-bottom: 10px; font-size: clamp(25px, 2.6vw, 38px); }
-            .stat { min-height: 52px; padding-block: 7px; }
+            .date { margin-bottom: 6px; font-size: clamp(25px, 2.6vw, 38px); }
+            .reach-stat { min-height: 38px; margin-bottom: 6px; padding-block: 6px; }
+            .reach-stat span,
+            .reach-stat b { font-size: clamp(19px, 1.7vw, 25px); }
+            .stat { min-height: 52px; padding: 7px; }
+            .stat b,
+            .stat span { font-size: clamp(15px, 1.35vw, 19px); }
             .source-link { margin-top: 9px; }
             .art-info > div { padding-top: 9px; }
             .work-title { font-size: clamp(20px, 1.8vw, 30px); }
@@ -863,7 +911,7 @@
                 <div class="track" id="track">
                     <article class="slide" aria-roledescription="slide" aria-label="第 1 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/study-abroad-dream.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e8d2adf60edf114f0370019976fa0cf5_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/68d2adf70000000014009a3c?xsec_token=AB1napOYpSDTqQFma1yKHNrQI5KLxzpNcGMa-8qK8HL5g=&amp;xsec_source=pc_user" aria-label="播放：你一定会实现出国留学的梦想的">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/study-abroad-dream.jpg" data-src="assets/exhibition/videos/study-abroad-dream.mp4" aria-label="播放：你一定会实现出国留学的梦想的">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -882,13 +930,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2025-09-23">2025.09.23</time>
+                                <div class="reach-stat" aria-label="全网浏览量 10 万以上"><span>全网浏览量</span><b>10w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>5,247</b><span>点赞</span></div>
                                     <div class="stat"><b>143</b><span>评论</span></div>
                                     <div class="stat"><b>1,155</b><span>收藏</span></div>
                                     <div class="stat"><b>217</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://www.xiaohongshu.com/explore/68d2adf70000000014009a3c?xsec_token=AB1napOYpSDTqQFma1yKHNrQI5KLxzpNcGMa-8qK8HL5g=&amp;xsec_source=pc_user" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <a class="source-link" href="http://xhslink.cn/o/39rZnqjUgj5" target="_blank" rel="noopener noreferrer">原作短链 ↗</a>
                                 <section class="comments-panel" aria-label="小红书评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>143</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -904,7 +953,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 2 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-cheap.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v1e00fgi0000d8dac67og65km80gthe0&amp;ratio=720p&amp;line=0" data-fallback-url="https://v.douyin.com/e_ockvdUL5M/" aria-label="播放：来新西兰旅行前没想到会这么便宜">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/new-zealand-cheap.webp" data-src="assets/exhibition/videos/new-zealand-cheap-1080p.mp4" aria-label="播放：来新西兰旅行前没想到会这么便宜">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -918,13 +967,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2026-05-30">2026.05.30</time>
+                                <div class="reach-stat" aria-label="全网浏览量 50 万以上"><span>全网浏览量</span><b>50w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>20,863</b><span>点赞</span></div>
                                     <div class="stat"><b>1,343</b><span>评论</span></div>
                                     <div class="stat"><b>14,172</b><span>收藏</span></div>
                                     <div class="stat"><b>17,606</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://v.douyin.com/e_ockvdUL5M/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <a class="source-link" href="https://v.douyin.com/e_ockvdUL5M/" target="_blank" rel="noopener noreferrer">原作短链 ↗</a>
                                 <section class="comments-panel" aria-label="抖音评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>1,343</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -940,7 +990,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 3 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/new-zealand-once.webp" data-src="https://www.iesdouyin.com/aweme/v1/play/?video_id=v2800fgi0000d82tjgfog65urev9gq4g&amp;ratio=720p&amp;line=0" data-fallback-url="https://v.douyin.com/Fg_meBVZtUk/" aria-label="播放：人一辈子一定要来一次新西兰">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/new-zealand-once.webp" data-src="assets/exhibition/videos/new-zealand-once-1080p.mp4" aria-label="播放：人一辈子一定要来一次新西兰">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -954,13 +1004,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2026-05-14">2026.05.14</time>
+                                <div class="reach-stat" aria-label="全网浏览量 80 万以上"><span>全网浏览量</span><b>80w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>33,120</b><span>点赞</span></div>
                                     <div class="stat"><b>1,820</b><span>评论</span></div>
                                     <div class="stat"><b>8,222</b><span>收藏</span></div>
                                     <div class="stat"><b>20,413</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://v.douyin.com/Fg_meBVZtUk/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <a class="source-link" href="https://v.douyin.com/Fg_meBVZtUk/" target="_blank" rel="noopener noreferrer">原作短链 ↗</a>
                                 <section class="comments-panel" aria-label="抖音评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>1,820</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -976,7 +1027,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 4 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="metadata" poster="assets/exhibition/taylor-swift.webp" data-src="assets/exhibition/videos/taylor-swift-web.mp4" data-fallback-url="https://v.douyin.com/q3uUQ6sk7eg/" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/taylor-swift.webp" data-src="assets/exhibition/videos/taylor-swift-1080p.mp4" aria-label="播放：一支剪了 20 小时的霉霉演唱会视频">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -993,13 +1044,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2024-09-26">2024.09.26</time>
+                                <div class="reach-stat" aria-label="全网浏览量 55 万以上"><span>全网浏览量</span><b>55w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>15,145</b><span>点赞</span></div>
                                     <div class="stat"><b>911</b><span>评论</span></div>
                                     <div class="stat"><b>8,393</b><span>收藏</span></div>
                                     <div class="stat"><b>3,056</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://v.douyin.com/q3uUQ6sk7eg/" target="_blank" rel="noopener noreferrer">在抖音查看 ↗</a>
+                                <a class="source-link" href="https://v.douyin.com/q3uUQ6sk7eg/" target="_blank" rel="noopener noreferrer">原作短链 ↗</a>
                                 <section class="comments-panel" aria-label="抖音评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>911</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -1015,7 +1067,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 5 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/japan-15-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e7776c452ae1ae01037001942a82e0e9_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/67776c46000000000b017a63" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/japan-15-days.jpg" data-src="assets/exhibition/videos/japan-15-days.mp4" aria-label="播放：保姆级攻略，大学生勇闯日本 15 天 8000 块">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1030,13 +1082,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2025-01-03">2025.01.03</time>
+                                <div class="reach-stat" aria-label="全网浏览量 30 万以上"><span>全网浏览量</span><b>30w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>3,338</b><span>点赞</span></div>
                                     <div class="stat"><b>94</b><span>评论</span></div>
                                     <div class="stat"><b>2,658</b><span>收藏</span></div>
                                     <div class="stat"><b>808</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67776c46000000000b017a63?xsec_token=CBA532_WlSP_-xkG7wUdwuNn4fbfolVBZb0NtqZrZKOkI=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67776c46000000000b017a63" target="_blank" rel="noopener noreferrer">原作链接 ↗</a>
                                 <section class="comments-panel" aria-label="小红书评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>94</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -1052,7 +1105,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 6 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/79/110/258/01e7b2e9674a10404f03700195133aaf3f_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/hokkaido-8-days.jpg" data-src="assets/exhibition/videos/hokkaido-8-days.mp4" aria-label="播放：大学生勇闯北海道 8 天 8000 块攻略">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1069,13 +1122,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2025-02-17">2025.02.17</time>
+                                <div class="reach-stat" aria-label="全网浏览量 30 万以上"><span>全网浏览量</span><b>30w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>3,447</b><span>点赞</span></div>
                                     <div class="stat"><b>80</b><span>评论</span></div>
                                     <div class="stat"><b>3,342</b><span>收藏</span></div>
                                     <div class="stat"><b>1,578</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321?xsec_token=CBHSzbjUC_ABccpcxL5-qaMRcYNdxbhpz6_NODjStJw_k=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/67b2ffe8000000001902e321" target="_blank" rel="noopener noreferrer">原作链接 ↗</a>
                                 <section class="comments-panel" aria-label="小红书评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>80</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -1091,7 +1145,7 @@
 
                     <article class="slide" aria-roledescription="slide" aria-label="第 7 件作品，共 7 件">
                         <div class="media-frame">
-                            <video controls playsinline preload="none" poster="assets/exhibition/internship-offers.jpg" data-src="https://sns-bak-v1.xhscdn.com/stream/1/110/258/01e53cec71ab7ecb01037001943ad08c97_258.mp4" data-fallback-url="https://www.xiaohongshu.com/explore/653cec72000000002202f282" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
+                            <video controls playsinline preload="metadata" poster="assets/exhibition/internship-offers.jpg" data-src="assets/exhibition/videos/internship-offers.mp4" aria-label="播放：19 岁大二 0 经验找实习如何拿下 5 家大厂 offer">
                                 你的浏览器暂不支持 HTML5 视频，请使用下方链接观看原作。
                             </video>
                         </div>
@@ -1106,13 +1160,14 @@
                             <aside class="meta" aria-label="作品信息">
                                 <div class="meta-label">PUBLISHED</div>
                                 <time class="date" datetime="2023-10-28">2023.10.28</time>
+                                <div class="reach-stat" aria-label="全网浏览量 50 万以上"><span>全网浏览量</span><b>50w+</b></div>
                                 <div class="stats">
                                     <div class="stat"><b>8,167</b><span>点赞</span></div>
                                     <div class="stat"><b>70</b><span>评论</span></div>
                                     <div class="stat"><b>7,473</b><span>收藏</span></div>
                                     <div class="stat"><b>240</b><span>分享</span></div>
                                 </div>
-                                <a class="source-link" href="https://www.xiaohongshu.com/explore/653cec72000000002202f282?xsec_token=CBGsZVwBu7y8AWhe8hEA2yXTGRrpLva7pTg43_00B1hEg=&amp;xsec_source=app_share" target="_blank" rel="noopener noreferrer">在小红书查看 ↗</a>
+                                <a class="source-link" href="https://www.xiaohongshu.com/explore/653cec72000000002202f282" target="_blank" rel="noopener noreferrer">原作链接 ↗</a>
                                 <section class="comments-panel" aria-label="小红书评论区">
                                     <div class="comments-heading"><h3>Comments / 评论区</h3><span>70</span></div>
                                     <div class="comments-list" tabindex="0">
@@ -1212,11 +1267,6 @@
                     launcher.classList.remove('is-error');
                     label.textContent = '点击播放';
                 };
-                const markRetry = () => {
-                    const failedAttempts = Number(launcher.dataset.failedAttempts || 0) + 1;
-                    launcher.dataset.failedAttempts = String(failedAttempts);
-                    return failedAttempts;
-                };
                 const revealPlayer = () => {
                     launcher.classList.remove('is-loading', 'is-error');
                     launcher.hidden = true;
@@ -1224,17 +1274,11 @@
                 const showError = () => {
                     launcher.classList.remove('is-loading');
                     launcher.classList.add('is-error');
-                    label.textContent = Number(launcher.dataset.failedAttempts || 0) > 1
-                        ? '仍无法播放 · 打开原作'
-                        : '加载失败 · 点击重试';
+                    label.textContent = '加载失败 · 点击重试';
                     launcher.hidden = false;
                 };
 
                 launcher.addEventListener('click', async () => {
-                    if (Number(launcher.dataset.failedAttempts || 0) > 1 && video.dataset.fallbackUrl) {
-                        window.open(video.dataset.fallbackUrl, '_blank', 'noopener,noreferrer');
-                        return;
-                    }
                     resetError();
                     launcher.classList.add('is-loading');
                     label.textContent = '正在加载';
@@ -1248,7 +1292,6 @@
                     } catch (error) {
                         if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) revealPlayer();
                         else {
-                            markRetry();
                             showError();
                         }
                     }
@@ -1258,7 +1301,6 @@
                     if (launcher.classList.contains('is-loading')) revealPlayer();
                 });
                 video.addEventListener('error', () => {
-                    markRetry();
                     showError();
                 });
             }
